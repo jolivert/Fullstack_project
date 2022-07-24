@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongo_fullstack_database
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: gerard
+      MONGO_INITDB_ROOT_PASSWORD: olakease
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data/db
+volumes:
+  data:
