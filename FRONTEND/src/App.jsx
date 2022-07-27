@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout.jsx'
-import Landing from './pages/Landing.jsx'
+import Landing from './pages/Register.jsx'
 import PlanningPocker from './pages/PlanningPocker.jsx'
 
 export default function App() {

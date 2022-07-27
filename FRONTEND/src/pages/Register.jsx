@@ -5,7 +5,7 @@ const Landing = () => {
   
   return (
     <div>
-    <h1>soy una prueba de landing</h1>
+    <h1>soy una prueba de register</h1>
 
     </div>
   )
