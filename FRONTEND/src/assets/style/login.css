@@ -13,7 +13,7 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-    height: 35em;
+    height: 30em;
     width: 27em;
     background-color: #FFFFFF;
     border-radius: 17px;
@@ -23,10 +23,14 @@
     border: none;
     margin-bottom: 3em;
     width: 315px;
-    height: 50px;
+    height: 40px;
     left: 574px;
     top: 431px;
     background: #F0F0F3;
+}
+.box-signin p{
+    margin-left: -16em;
+    margin-bottom: 3px;
 }
 
 .box-signin button{
@@ -44,7 +48,7 @@
 }
 .registerNow{
    color:#FFFFFF;
-   margin-top: 3em;
+   margin: 1em;
 }
 .registerNow span{
     color: #FE4B2B;

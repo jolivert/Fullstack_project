@@ -1,0 +1,31 @@
+import React from 'react'
+
+
+const SingUp = () => {
+  return (
+    <div className="container-initial">
+      <div className="box-signup">
+      <div class="containerSingUp">
+      <div class="switch">
+        <input type="radio" className='switch-input' name="view" value="week" id="week" checked/>
+          <label for="week" class="switch-label switch-label-off">Week</label>
+          <input type="radio" class="switch-input" name="view" value="month" id="month"/>
+          <label for="month" class="switch-label switch-label-on">Month</label>
+          <span class="switch-selection"></span>
+      </div>
+    </div>
+        <h1>Sign Up</h1>
+        <p>Name</p>
+        <input type="text" />
+        <p>Email</p>
+        <input type="text" />
+        <p>Password</p>
+        <input type="text" />
+
+        <button>SingUp</button>
+      </div>
+      
+    </div>
+  )
+}
+export default SingUp

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -13,9 +14,11 @@ const Footer = () => {
 
         <button>Login</button>
       </div>
+      <Link to="/">
       <p className="registerNow">
-        if you havn’t Registed yet ? <span>Register Now</span>{' '}
+        if you havn’t Registed yet ?<span>Register Now</span>{' '}
       </p>
+      </Link>
     </div>
   )
 }
