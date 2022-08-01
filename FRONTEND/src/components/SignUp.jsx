@@ -1,7 +1,8 @@
 import React from 'react'
+import '../assets/style/signUp.css'
 
 
-const SingUp = () => {
+const SignUp = () => {
   return (
     <div className="container-initial">
       <div className="box-signup">
@@ -28,4 +29,4 @@ const SingUp = () => {
     </div>
   )
 }
-export default SingUp
+export default SignUp

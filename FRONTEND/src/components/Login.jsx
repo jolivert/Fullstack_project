@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import '../assets/style/login.css'
+import SignUp from './SignUp';
 
 
-const Footer = () => {
+const Login = () => {
   return (
     <div className="container-initial">
       <div className="box-signin">
@@ -14,7 +16,7 @@ const Footer = () => {
 
         <button>Login</button>
       </div>
-      <Link to="/">
+      <Link to="/signUp">
       <p className="registerNow">
         if you havn’t Registed yet ?<span>Register Now</span>{' '}
       </p>
@@ -22,4 +24,4 @@ const Footer = () => {
     </div>
   )
 }
-export default Footer
+export default Login
