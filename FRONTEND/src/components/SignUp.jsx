@@ -8,9 +8,9 @@ const SingUp = () => {
       <div class="containerSingUp">
       <div class="switch">
         <input type="radio" className='switch-input' name="view" value="week" id="week" checked/>
-          <label for="week" class="switch-label switch-label-off">Week</label>
+          <label for="week" class="switch-label switch-label-off">PO</label>
           <input type="radio" class="switch-input" name="view" value="month" id="month"/>
-          <label for="month" class="switch-label switch-label-on">Month</label>
+          <label for="month" class="switch-label switch-label-on">Team</label>
           <span class="switch-selection"></span>
       </div>
     </div>
