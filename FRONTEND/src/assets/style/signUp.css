@@ -1,0 +1,119 @@
+/*boton po o team*/
+.switch {
+  position: relative;
+  margin: 15px auto;
+  height: 26px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 44px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 58px;
+  line-height: 26px;
+  font-size: 11px;
+  color: #535353;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.switch-label:active {
+  font-weight: bold;
+}
+
+.switch-label-off {
+  padding-left: 2px;
+}
+
+.switch-label-on {
+  padding-right: 2px;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-input:checked + .switch-label {
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  transition: 0.15s ease-out;
+}
+
+.switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 60px;
+}
+
+.switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 58px;
+  height: 22px;
+  background: #fe4b2b;
+  border-radius: 44px;
+  background-image: linear-gradient(to bottom, #fe4b2b, #fe632bdf);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  transition: left 0.15s ease-out;
+}
+
+/*sign Up*/
+
+.container-initial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #41527e;
+  color: #41527e;
+}
+
+.box-signup {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  height: 35em;
+  width: 27em;
+  background-color: #ffffff;
+  border-radius: 17px;
+}
+.box-signup p {
+  margin-left: -16em;
+  margin-bottom: 3px;
+}
+
+.box-signup input {
+  border: none;
+  margin-bottom: 0.5em;
+  width: 315px;
+  height: 40px;
+  background: #f0f0f3;
+}
+
+.box-signup button {
+  font-size: large;
+  font-weight: 700;
+  margin: 2em;
+  color: #ffffff;
+  border: none;
+  width: 315px;
+  height: 67px;
+  left: calc(50% - 315px / 2 + 11.5px);
+  top: calc(50% - 67px / 2 + 169.5px);
+  background: #fe4b2b;
+  border-radius: 44px;
+}
+.box-signup button:hover {
+  text-shadow: 0 4px rgba(234, 28, 28, 0.956);
+}
+
+
