@@ -18,6 +18,8 @@ const SignUp = () => {
         <h1>Sign Up</h1>
         <p>Name</p>
         <input type="text" />
+        <p>Surname</p>
+        <input type="text" />
         <p>Email</p>
         <input type="text" />
         <p>Password</p>
