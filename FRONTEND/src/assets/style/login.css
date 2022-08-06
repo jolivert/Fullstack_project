@@ -9,6 +9,8 @@
 }
 
 .box-signin {
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -19,20 +21,28 @@
   border-radius: 17px;
 }
 
+.box-signin div {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  width: 90%;
+}
+.box-signin div p{
+width: 70%;
+align-items: flex-start;
+}
+
 .box-signin input {
   border: none;
-  margin-bottom: 2em;
-  width: 315px;
   height: 50px;
-  left: 574px;
-  top: 431px;
+  width: 70%;
   background: #f0f0f3;
-}
-.box-signin p {
-  margin-left: -16em;
 }
 
 .box-signin button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-size: large;
   font-weight: 700;
   margin-top: 1em;
@@ -40,10 +50,9 @@
   border: none;
   width: 315px;
   height: 67px;
-  left: calc(50% - 315px / 2 + 11.5px);
-  top: calc(50% - 67px / 2 + 169.5px);
   background: #fe4b2b;
   border-radius: 44px;
+  margin-top: 2em;
 }
 
 .box-signin button:hover {
