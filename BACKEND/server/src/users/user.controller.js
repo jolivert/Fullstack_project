@@ -1,5 +1,5 @@
 //TODO: authenticate user
-//const { needsAuthToken } = require("./auth/auth.middleware");
+const { needsAuthToken } = require("./auth/auth.middleware");
 const { catchErrors, TeamMgmtApiError} = require("../errors");
 const users = require("./user.service");
 //TODO: config.js
@@ -8,7 +8,7 @@ const users = require("./user.service");
 const login = async (req, res) => {
   const loginData = req.body;
   //TODO: authenticate user
-  //const token = await users.authenticateUser(loginData);
+  const token = await users.authenticateUser(loginData);
   res.status(200).json(token);
 };
 
