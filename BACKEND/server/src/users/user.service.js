@@ -7,7 +7,7 @@ const { errMalformed, errUnauthorized } = require('../errors');
 const createUser = async ({ username, email, password: plaintextPassword, name, surname, userType }) => {
   //TODO: encryption
   //const encryptedPassword = await auth.encryptPassword(plaintextPassword);
-  const encryptedPassword = await auth.encryptPassword(plaintextPassword);
+  const encryptedPassword = await auth.encryptPassword(plaintextPassword);// se eencripta el password
   console.log(`user.service - createUser: ${username}, ${email}, ${plaintextPassword}`)
   return await User.create({ username, email, password: encryptedPassword, name, surname, userType });
 }
