@@ -1,8 +1,10 @@
 /*boton po o team*/
 .switch {
+  display:flex;
+  align-items: center;
   position: relative;
   margin: 15px auto;
-  height: 26px;
+  height: 36px;
   width: 120px;
   background: rgba(0, 0, 0, 0.25);
   border-radius: 44px;
@@ -56,7 +58,7 @@
   top: 2px;
   left: 2px;
   width: 58px;
-  height: 22px;
+  height: 32px;
   background: #fe4b2b;
   border-radius: 44px;
   background-image: linear-gradient(to bottom, #fe4b2b, #fe632bdf);
@@ -76,20 +78,19 @@
   color: #41527e;
 }
 
+
 .box-signup {
+  padding-top: 2em;
   align-items: center;
   flex-direction: column;
   display: flex;
   justify-content: center;
-  height: 35em;
-  width: 27em;
+  height: auto;
+  width: 29em;
   background-color: #ffffff;
   border-radius: 17px;
 }
-.box-signup p {
-  margin-left: -16em;
-  margin-bottom: 3px;
-}
+
 
 .box-signup input {
   border: none;
@@ -116,4 +117,9 @@
   text-shadow: 0 4px rgba(234, 28, 28, 0.956);
 }
 
-
+.login_back{
+  color: #ffffff;
+}
+.login_back span{
+  color: #fe4b2b;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import '../assets/style/login.css'
-import SignUp from './SignUp';
+
 
 
 const Login = () => {
@@ -9,11 +9,13 @@ const Login = () => {
     <div className="container-initial">
       <div className="box-signin">
         <h1>Login</h1>
+        <div>
         <p>Email</p>
         <input type="text" />
         <p>Password</p>
         <input type="text" />
-
+        </div>
+      
         <button>Login</button>
       </div>
       <Link to="/signUp">
