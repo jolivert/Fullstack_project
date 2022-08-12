@@ -3,6 +3,7 @@ import '../assets/style/signUp.css'
 import { Link } from 'react-router-dom'
 
 const SignUp = () => {
+  
   return (
     <div className="container-initial">
       <div className="box-signup">
@@ -12,21 +13,21 @@ const SignUp = () => {
               type="radio"
               className="switch-input"
               name="view"
-              value="week"
-              id="week"
+              value="po"
+              id="po"
               checked
             />
-            <label for="week" class="switch-label switch-label-off">
+            <label for="po" class="switch-label switch-label-off">
               PO
             </label>
             <input
               type="radio"
               class="switch-input"
               name="view"
-              value="month"
-              id="month"
+              value="team"
+              id="team"
             />
-            <label for="month" class="switch-label switch-label-on">
+            <label for="team" class="switch-label switch-label-on">
               Team
             </label>
             <span class="switch-selection"></span>
