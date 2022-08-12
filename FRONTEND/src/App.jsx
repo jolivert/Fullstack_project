@@ -4,11 +4,13 @@ import Initial from './pages/Initial.jsx'
 import SignUp from './components/SignUp'
 import PlanningPocker from './pages/PlanningPocker.jsx'
 import './assets/style/App.css'
+import AuthProvider from "../src/auth/authProvider.jsx"
 
 
 export default function App() {
   return (
     <div>
+      <AuthProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Initial />} />
@@ -16,6 +18,7 @@ export default function App() {
           <Route path="planningPocker" element={<PlanningPocker />} />
         </Route>
       </Routes>
+      </AuthProvider>
     </div>
   )
 }

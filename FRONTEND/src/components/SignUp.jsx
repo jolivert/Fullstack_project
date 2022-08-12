@@ -9,7 +9,8 @@ const SignUp = () => {
       <div className="box-signup">
         <div class="containerSingUp">
           <div class="switch">
-            <input
+           <label htmlFor="">
+           <input
               type="radio"
               className="switch-input"
               name="view"
@@ -17,6 +18,8 @@ const SignUp = () => {
               id="po"
               checked
             />
+           </label>
+            
             <label for="po" class="switch-label switch-label-off">
               PO
             </label>
@@ -45,7 +48,9 @@ const SignUp = () => {
           <input type="text" />
         </div>
         <button>SingUp</button>
+        
       </div>
+      
       <Link to="/">
           <p className="login_back">
             Are you already registered ?<span> Log in</span>{' '}
