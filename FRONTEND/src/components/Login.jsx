@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import '../assets/style/login.css'
+import Layout from '../pages/Layout';
+import SignUp from './SignUp';
 
 
 
@@ -16,7 +18,8 @@ const Login = () => {
         <input type="text" />
         </div>
       
-        <button>Login</button>
+        <Link to="/projects"> <button>Login</button> </Link>
+        {/* <button> <Link to="/signUp">Login</Link></button> */}
       </div>
       <Link to="/signUp">
       <p className="registerNow">
