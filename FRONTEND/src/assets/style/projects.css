@@ -1,3 +1,80 @@
 body{
     background-color: #41527E;
 }
+
+.projectpage{
+    display: flex;
+}
+
+/* div de creación de proyectos */
+.create{
+    width: 25%;
+}
+
+/* div lista de proyectos */
+.list {
+    width: 50%;
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list ul {
+    padding: 0;
+}
+
+#listitem {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    gap: 35px;
+}
+
+#listitem div{
+    width: 150px;
+    margin-left: 30px;
+    /* margin-right: 25px;     */
+    gap: 0;
+    /* background-color: grey; */
+}
+
+#listitem img {
+    margin: 25px;
+}
+
+
+
+.icon {
+    height: 1.5rem;
+    margin: 5px;
+}
+
+/* Para eliminar los margenes entre el titulo y el poname: */
+h3{
+    color: #FE4B2B;
+    margin-bottom: 5px;
+}
+#po {
+    margin-top: 0;
+}
+
+
+button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: large;
+    font-weight: 700;
+    margin-top: 1em;
+    color: #ffffff;
+    border: none;
+    width: 106px;
+    height: 67px;
+    background: #fe4b2b;
+    border-radius: 44px;
+    margin-top: 2em;
+}
