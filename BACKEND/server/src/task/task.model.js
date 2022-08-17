@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
+//require ('../user_story/user_story.model');
 const UserStory = mongoose.model('UserStory');
-//const User = mongoose.model('User');
+require ('../users/user.model');
+const User = mongoose.model('user');
+
 
 const taskSchema = mongoose.Schema({
   task_name: {
@@ -10,13 +13,13 @@ const taskSchema = mongoose.Schema({
   },
  user_story_id: {
     type: mongoose.Schema.ObjectId, ref: 'UserStory',
-    
+    required: true,
   },
-   /*  
+     
   users_id: [{
   type: mongoose.Schema.ObjectId, ref: 'User',
   }],
-  */
+  
   finished: {
     type: Boolean,
     required: true,
@@ -27,10 +30,10 @@ const taskSchema = mongoose.Schema({
   time_end: { 
     type: Date,
   },
- story_point:{
+ story_points:{
   type: Number
 }
 });
 
 
-module.exports = mongoose.model('Tarea', taskSchema);
+module.exports = mongoose.model('Task', taskSchema);

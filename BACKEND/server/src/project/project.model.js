@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-//const User = mongoose.model('User');
+require ('../users/user.model');
+const User = mongoose.model('user');
 
 const projectSchema = mongoose.Schema({
   project_name: {
@@ -8,16 +9,14 @@ const projectSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
- /*product_owner: {
-    type: Schema.ObjectId, ref: 'User',
+ product_owner: {
+    type: mongoose.Schema.ObjectId, ref: 'User',
     unique: false,
     required: true,
   },
    team_members: [{
     type: mongoose.Schema.ObjectId, ref: 'User',
-    unique: false,
-    required: true,
-    }],*/
+    }],
 
  
  

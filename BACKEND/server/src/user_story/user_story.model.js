@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+//require ('../task/task.model');
 const Project = mongoose.model('Project');
-//const Tarea = mongoose.model('Tarea');
+//const Task = mongoose.model('Task');
+
 
 
 const userStorySchema = mongoose.Schema({
@@ -17,16 +19,15 @@ const userStorySchema = mongoose.Schema({
   },
  project_id: {
     type: mongoose.Schema.ObjectId, ref: 'Project',
-    
+    required: true,
   },
   
  /*tasks: [{
-  type: mongoose.Schema.ObjectId, ref: 'Tarea',
-  }], */
+  type: mongoose.Schema.ObjectId, ref: 'Task',
+  }],*/
   state: {
-    type: String,
+    type: Boolean,
     required: true,
-    trim: true,
   }
  
 });

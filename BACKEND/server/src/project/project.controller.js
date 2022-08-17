@@ -34,9 +34,9 @@ const router = express.Router();
     //update a projects
     router.put("/project/:id",(req, res)=>{
         const {id}= req.params;
-        const {project_name}= req.body;
+        const {project_name, product_owner, team_members}= req.body;
         projectSchema
-        .updateOne({_id:id}, {$set: {project_name}})  
+        .updateOne({_id:id}, {$set: {project_name, product_owner, team_members}})  
         .then((data)=>res.json(data))
         .catch((error)=> res.json({message: error}));
       });

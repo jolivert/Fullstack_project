@@ -24,7 +24,7 @@ const router = express.Router();
   router.get("/user_story/:id",(req, res)=>{
     const {id}= req.params;
     userStorySchema
-    .findById(id) 
+    .findById(id).populate("project_id")
     .then((data)=>res.json(data))
     .catch((error)=> res.json({message: error}));
   });
@@ -32,9 +32,9 @@ const router = express.Router();
     //update a user_story
     router.put("/user_story/:id",(req, res)=>{
         const {id}= req.params;
-        const {story_name,project_id,state}= req.body;
+        const {story_name,description, project_id,state}= req.body;
         userStorySchema
-        .updateOne({_id:id}, {$set: {story_name,project_id,state}})  
+        .updateOne({_id:id}, {$set: {story_name,description, project_id,state}})  
         .then((data)=>res.json(data))
         .catch((error)=> res.json({message: error}));
       });
