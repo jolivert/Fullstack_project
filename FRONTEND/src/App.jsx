@@ -1,42 +1,46 @@
-import { Route, Routes } from 'react-router-dom'
-import Layout from './pages/Layout.jsx'
-import Initial from './pages/Initial.jsx'
-import SignUp from './components/SignUp'
-import PlanningPocker from './pages/PlanningPocker.jsx'
-import './assets/style/App.css'
-import { useState } from 'react'
-import Login from './components/Login.jsx'
-
-
-
-
+import { Route, Routes } from "react-router-dom";
+import Layout from "./pages/Layout.jsx";
+import Initial from "./pages/Initial.jsx";
+import SignUp from "./components/SignUp";
+import PlanningPocker from "./pages/PlanningPocker.jsx";
+import "./assets/style/App.css";
+import { useState } from "react";
+import Login from "./components/Login.jsx";
 
 function App() {
+  const [token, setToken] = useState(null);
 
-  const[token,setToken]= useState (null)
-
-  const login = (token)=>{
-    setToken(token)
-  }
+  const login = (token) => {
+    setToken(token);
+  };
 
   if (token === null) {
-    return <Login onLogin={login}/>;
-    
-
-  } else{
-  return (
+    return (
     <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<PlanningPocker />} />
-          <Route path="signUp" element={<SignUp />} />
-         
-        </Route>
-      </Routes>
+   
+    <Routes>
+          <Route path="/" element={<Login onLogin={login} />}>
+          
+          </Route>  
+          <Route path="/signUp" element={<SignUp />}>
+          </Route>
+        </Routes>
+    
+    
     </div>
-  )
-}
+    );
+
+  } else {
+    return (
+      <div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<PlanningPocker />} />
+          </Route>
+        </Routes>
+      </div>
+    );
+  }
 }
 
-
-export default App
+export default App;

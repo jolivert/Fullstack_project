@@ -41,7 +41,7 @@ const Login = ({ onLogin }) => {
       </form>
       <Link to="/signUp">
       <p className="registerNow">
-        if you havn’t Registed yet ?<span> Register Now</span>{' '}
+        if you haven’t Registered yet ?<span> Register Now</span>{' '} 
       </p>
       </Link>
     </div>
