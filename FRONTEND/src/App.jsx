@@ -4,18 +4,39 @@ import Initial from './pages/Initial.jsx'
 import SignUp from './components/SignUp'
 import PlanningPocker from './pages/PlanningPocker.jsx'
 import './assets/style/App.css'
+import { useState } from 'react'
+import Login from './components/Login.jsx'
 
 
-export default function App() {
+
+
+
+function App() {
+
+  const[token,setToken]= useState (null)
+
+  const login = (token)=>{
+    setToken(token)
+  }
+
+  if (token === null) {
+    return <Login onLogin={login}/>;
+    
+
+  } else{
   return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Initial />} />
+          <Route index element={<PlanningPocker />} />
           <Route path="signUp" element={<SignUp />} />
-          <Route path="planningPocker" element={<PlanningPocker />} />
+         
         </Route>
       </Routes>
     </div>
   )
 }
+}
+
+
+export default App
