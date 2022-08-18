@@ -117,6 +117,11 @@
   text-shadow: 0 4px rgba(234, 28, 28, 0.956);
 }
 
+.error_pwd_comparison{
+  color: #fe4b2b;
+  margin-bottom: 0;
+}
+
 .login_back{
   color: #ffffff;
 }
