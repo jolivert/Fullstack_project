@@ -14,8 +14,8 @@ const SignUp = () => {
   const [password2, setPassword2] = useState("");
   const [checkedPO, setCheckedPO] = useState(true);
   const [checkedTM, setCheckedTM] = useState(false);
-  const [showPwdError, setShowPwdError] = useState(false);
-  const [showSuccess, setSuccess] = useState(false);
+  const [showMessage, setViewMessage] = useState(false);
+  const [contentMessage, setContentMessage] = useState("");
 
 
   const handleUserTypeChange = event => {
@@ -32,37 +32,30 @@ const SignUp = () => {
     }
   };
 
-  const PwdMismatch = () => (
-    <p className="error_pwd_comparison">
-          Passwords don't match, check again!
-    </p>
-  );
-
-  const SuccessfulRegistration = () => (
-    <p className="error_pwd_comparison">
-          Registration was successful!
+  const ContentMessage = () => (
+    <p className="message_feedback">
+          {contentMessage}
     </p>
   );
 
   const register = async(registerData) => {
     const { success, error } = await api.register(registerData);
+    setViewMessage(true);
     if(success){
-
+      setContentMessage("Registration was successful!");
     }else{
-
+      setContentMessage(error);
     }
   }
 
   const submit = (e) => {
-    const userType = checkedPO == true ? "PO" : "TM";
+    const userType = checkedPO == true ? "PO" : "TM"; //product owner : team member
     const passwordMatch = (password === password2) ? true : false;
+    setViewMessage(true);
     if(!passwordMatch){
-      setShowPwdError(true);
-      setSuccess(false);
+      setContentMessage("Passwords don't match, check again!");
     }else{
-      setShowPwdError(false);
-      register(name, surname, username, email, password, userType);
-      setSuccess(true);
+      register({name, surname, username, email, password, userType});
     }
   };
 
@@ -113,9 +106,8 @@ const SignUp = () => {
           <p>Repeat Password</p>
           <input type="password" value={password2} onChange={(e) => setPassword2(e.target.value)}/>
         </div>
-        { showPwdError ? <PwdMismatch /> : null } {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
-        { showSuccess ? <SuccessfulRegistration /> : null}
-        <button onClick={submit}>SingUp</button>
+        { showMessage ? <ContentMessage /> : null} {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
+        <button onClick={submit}>Sign Up</button>
       </div>
       <Link to="/">
           <p className="login_back">
