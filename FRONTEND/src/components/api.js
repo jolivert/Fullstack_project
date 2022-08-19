@@ -23,14 +23,14 @@ export const login = async (userData) => {
   }
 };
 
-export const register = async ({ email, password }) => {
+export const register = async (registerData) => {
   try {
     const response = await fetch(`${BASE_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(registerData),
     });
     const result = await response.json();
     if (response.status === 200) {
