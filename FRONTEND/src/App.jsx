@@ -8,27 +8,29 @@ import { useState } from "react";
 import Login from "./components/Login.jsx";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [toggle,setToggle] = useState("login")
 
   const login = (token) => {
     setToken(token);
+    localStorage.setItem("token",JSON.stringify(token));
   };
 
+  const togfunct= (toggle) =>{
+    console.log(toggle)
+    setToggle(toggle);
+  }
+
+
   if (token === null) {
-    return (
-    <div>
-   
-    <Routes>
-          <Route path="/" element={<Login onLogin={login} />}>
-          
-          </Route>  
-          <Route path="/signUp" element={<SignUp />}>
-          </Route>
-        </Routes>
+    if (toggle=== "login") {return <Login onLogin={login} ontoggle={togfunct}/>}
+    else{ return <SignUp/>
+  
+      
+    };
     
     
-    </div>
-    );
+    
 
   } else {
     return (
