@@ -1,7 +1,8 @@
 import React , { useState }from 'react'
 import { Link } from "react-router-dom";
 import '../assets/style/login.css'
-import * as api from "../api";
+import * as api from "./api";
+//import { useState } from 'react';
 
 
 const Login = ({ onLogin }) => {
@@ -22,8 +23,8 @@ const Login = ({ onLogin }) => {
 
    const submit = (e) => {
     e.preventDefault();
-    (mode === "login" ? login : register)({ email, password });
-  };
+    login({ email, password });
+      };
 
   return (
     <div className="container-initial">
@@ -40,7 +41,7 @@ const Login = ({ onLogin }) => {
       </form>
       <Link to="/signUp">
       <p className="registerNow">
-        if you havn’t Registed yet ?<span> Register Now</span>{' '}
+        if you haven’t Registered yet ?<span> Register Now</span>{' '} 
       </p>
       </Link>
     </div>
