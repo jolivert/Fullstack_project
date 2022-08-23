@@ -117,6 +117,13 @@
   text-shadow: 0 4px rgba(234, 28, 28, 0.956);
 }
 
+.message_feedback{
+  color: #fe4b2b;
+  margin-bottom: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .login_back{
   color: #ffffff;
 }
