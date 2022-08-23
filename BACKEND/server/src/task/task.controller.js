@@ -23,7 +23,7 @@ const router = express.Router();
  //get all tasks
  router.get("/task",(req, res)=>{
   taskSchema
-   .find().populate("user_story_id")
+   .find()
    .then((data)=>res.json(data))
    .catch((error)=> res.json({message: error}));
  });
