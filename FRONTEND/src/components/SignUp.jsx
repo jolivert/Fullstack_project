@@ -118,7 +118,7 @@ const SignUp = () => {
 
       </div>
       
-      <Link to="/">
+      <Link to="/Login">
           <p className="login_back">
             Are you already registered ?<span> Log in</span>{' '}
           </p>
