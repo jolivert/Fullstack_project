@@ -5,6 +5,8 @@ import PlanningPocker from "./pages/PlanningPocker.jsx";
 import "./assets/style/App.css";
 import { useState } from "react";
 import Login from "./components/Login.jsx";
+import TodoTasks from "./pages/TodoTasks.jsx";
+import Tasks from "./pages/Tasks.jsx";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -37,6 +39,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<PlanningPocker />} />
+            <Route path="TodoTasks" element={<TodoTasks/>} />
+            <Route path="Tasks" element={<Tasks />} />
           </Route>
         </Routes>
       </div>
