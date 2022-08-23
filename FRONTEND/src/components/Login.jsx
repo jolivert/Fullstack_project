@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import React , { useState }from 'react'
 import "../assets/style/login.css";
 import * as api from "./api";
-import { useState } from "react";
+
 
 const Login = ({ onLogin, ontoggle }) => {
   const [email, setEmail] = useState("");
@@ -21,6 +21,7 @@ const Login = ({ onLogin, ontoggle }) => {
 
   const submit = (e) => {
     e.preventDefault();
+
     login({ email, password });
   };
 
@@ -29,6 +30,7 @@ const Login = ({ onLogin, ontoggle }) => {
     setMode("register");
     ontoggle(mode);
   };
+
 
   return (
     <div className="container-initial">

@@ -64,15 +64,19 @@ const SignUp = () => {
       <div className="box-signup">
         <div class="containerSingUp">
           <div class="switch">
-            <input
+           <label htmlFor="">
+           <input
               type="radio"
               className="switch-input"
               name="view"
               value="po"
               id="po"
+
               onChange={handleUserTypeChange}
               checked={checkedPO}
             />
+             </label>
+
             <label for="po" class="switch-label switch-label-off">
               PO
             </label>
@@ -80,12 +84,14 @@ const SignUp = () => {
               type="radio"
               class="switch-input"
               name="view"
+
               value="tm"
               id="tm"
               onChange={handleUserTypeChange}
               checked={checkedTM}
             />
             <label for="tm" class="switch-label switch-label-on">
+
               Team
             </label>
             <span class="switch-selection"></span>
@@ -106,14 +112,20 @@ const SignUp = () => {
           <p>Repeat Password</p>
           <input type="password" value={password2} onChange={(e) => setPassword2(e.target.value)}/>
         </div>
+
         { showMessage ? <ContentMessage /> : null} {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
         <button onClick={submit}>Sign Up</button>
+
       </div>
-      <Link to="/">
+      
+      <Link to="/Login">
           <p className="login_back">
             Are you already registered ?<span> Log in</span>{' '}
           </p>
         </Link>
+   
+        
+        
     </div>
   )
 }

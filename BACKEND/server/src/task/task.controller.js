@@ -9,7 +9,6 @@ const router = express.Router();
  /*//create project
  router.post("/project",(req, res)=>{
     res.send("create project");
-
  });*/
 
  //create a task
@@ -24,7 +23,7 @@ const router = express.Router();
  //get all tasks
  router.get("/task",(req, res)=>{
   taskSchema
-   .find().populate("user_story_id")
+   .find()
    .then((data)=>res.json(data))
    .catch((error)=> res.json({message: error}));
  });

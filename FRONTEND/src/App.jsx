@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout.jsx";
-import Initial from "./pages/Initial.jsx";
 import SignUp from "./components/SignUp";
 import PlanningPocker from "./pages/PlanningPocker.jsx";
 import "./assets/style/App.css";
 import { useState } from "react";
 import Login from "./components/Login.jsx";
+import TodoTasks from "./pages/TodoTasks.jsx";
+import Tasks from "./pages/Tasks.jsx";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -23,6 +24,7 @@ function App() {
 
 
   if (token === null) {
+
     if (toggle=== "login") {return <Login onLogin={login} ontoggle={togfunct}/>}
     else{ return <SignUp/>
   
@@ -32,12 +34,15 @@ function App() {
     
     
 
+
   } else {
     return (
       <div>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<PlanningPocker />} />
+            <Route path="TodoTasks" element={<TodoTasks/>} />
+            <Route path="Tasks" element={<Tasks />} />
           </Route>
         </Routes>
       </div>

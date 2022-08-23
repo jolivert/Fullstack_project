@@ -6,7 +6,7 @@ import SignUp from '../components/SignUp'
 const Initial = () => {
   return (
     <div>
-      <Login/>
+      
     </div>
   )
 }
