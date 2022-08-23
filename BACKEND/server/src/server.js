@@ -1,23 +1,38 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const projectRoutes= require ('./project/project.controller');
+const userStoryRoutes= require ('./user_story/user_story.controller');
+const taskRoutes= require ('./task/task.controller');
 
-const PORT = "8082";
+
+const PORT = process.env.PORT || 8082;
 const db = require('./db');
 const { errorHandler, TeamMgmtApiError } = require("./errors");
 
 const app = express();
+
+app.use(express.json());
+app.use('/api', projectRoutes);
+app.use('/api', userStoryRoutes);
+app.use('/api', taskRoutes);
+
+
+
+
 
 app.disable('x-powered-by');
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
+
 app.get("/",async (req, res)=>{
     res.status(200).send({ send: "Hello! Welcome to the team management API!"});
 });
 
 require('./users/user.controller').addRoutesTo(app);
+
 
 // Catch all errors from middleware
 app.all("/*", async (req, res, next) => {
