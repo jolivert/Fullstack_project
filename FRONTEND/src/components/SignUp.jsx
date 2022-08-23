@@ -123,6 +123,9 @@ const SignUp = () => {
             Are you already registered ?<span> Log in</span>{' '}
           </p>
         </Link>
+   
+        
+        
     </div>
   )
 }

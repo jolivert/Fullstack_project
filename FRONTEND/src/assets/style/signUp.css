@@ -73,14 +73,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto; /**/
   background-color: #41527e;
   color: #41527e;
 }
 
 
 .box-signup {
-  padding-top: 2em;
+  padding: 1em;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -89,21 +89,26 @@
   width: 29em;
   background-color: #ffffff;
   border-radius: 17px;
+ 
 }
-
+.box-signup h1 {
+  margin-bottom: .3em;
+}
 
 .box-signup input {
   border: none;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.4em;
   width: 315px;
   height: 40px;
   background: #f0f0f3;
 }
 
+
 .box-signup button {
   font-size: large;
   font-weight: 700;
-  margin: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   color: #ffffff;
   border: none;
   width: 315px;
@@ -126,7 +131,15 @@
 
 .login_back{
   color: #ffffff;
+  margin: 1em;
 }
 .login_back span{
   color: #fe4b2b;
+}
+
+@media (max-height: 800px) {
+  .container-initial{
+    height: 100%;
+    min-height: 780px;
+  }
 }
