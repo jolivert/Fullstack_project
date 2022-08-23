@@ -41,9 +41,9 @@ const router = express.Router();
     //update a task
     router.put("/task/:id",(req, res)=>{
         const {id}= req.params;
-        const {task_name,user_story_id,finished,time_init,time_end,story_point}= req.body;
+        const {task_name, users_id, project_id,finished,isvoted, description,time_init,time_end,story_point}= req.body;
         taskSchema
-        .updateOne({_id:id}, {$set: {task_name,user_story_id,finished,time_init,time_end,story_point}})  
+        .updateOne({_id:id}, {$set: {task_name, users_id, project_id,finished,isvoted, description,time_init,time_end,story_point}})  
         .then((data)=>res.json(data))
         .catch((error)=> res.json({message: error}));
       });
