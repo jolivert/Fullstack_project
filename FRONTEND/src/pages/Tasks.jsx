@@ -15,7 +15,7 @@ const Tasks = () => {
         <div className='boxTask'>
         <section className='infoTask'>
           <h2> Title Task </h2>
-          <p>more info</p>
+          <p>More info</p>
           <button>vote</button>
         </section>
         <section className='descriptionTask'> descripción de la tares</section>
