@@ -4,7 +4,7 @@ import '../assets/style/signUp.css';
 import { Link } from 'react-router-dom';
 import * as api from "./api";
 
-const SignUp = () => {
+const SignUp = ( ontoggle) => {
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -57,13 +57,19 @@ const SignUp = () => {
     }else{
       register({name, surname, username, email, password, userType});
     }
+  }
+
+  const togglemodeLogin = (e) => {
+    e.preventDefault();
+    setMode("login");
+    ontoggle(mode);
   };
 
   return (
     <div className="container-initial">
       <div className="box-signup">
-        <div class="containerSingUp">
-          <div class="switch">
+        <div className="containerSingUp">
+          <div className="switch">
            <label htmlFor="">
            <input
               type="radio"
@@ -77,12 +83,12 @@ const SignUp = () => {
             />
              </label>
 
-            <label for="po" class="switch-label switch-label-off">
+            <label for="po" className="switch-label switch-label-off">
               PO
             </label>
             <input
               type="radio"
-              class="switch-input"
+              className="switch-input"
               name="view"
 
               value="tm"
@@ -94,7 +100,7 @@ const SignUp = () => {
 
               Team
             </label>
-            <span class="switch-selection"></span>
+            <span className="switch-selection"></span>
           </div>
         </div>
         <h1>Sign Up</h1>
@@ -120,7 +126,7 @@ const SignUp = () => {
       
       <Link to="/Login">
           <p className="login_back">
-            Are you already registered ?<span> Log in</span>{' '}
+            Are you already registered ? <button  onClick={togglemodeLogin}><span> Log In </span>{" "} </button>
           </p>
         </Link>
    

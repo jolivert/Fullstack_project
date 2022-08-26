@@ -71,6 +71,8 @@ align-items: flex-start;
   color: #ffffff;
   margin: 1em;
 }
-.registerNow span {
+.registerNow button {
   color: #fe4b2b;
+  border: none;
+  background-color: transparent;
 }
