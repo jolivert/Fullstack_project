@@ -27,13 +27,10 @@ function App() {
   if (token === null) {
 
     if (toggle=== "login") {return <Login onLogin={login} ontoggle={togfunct}/>}
-    else{ return <SignUp/>
-      
-    };
-    
+    else if(toggle=== "register"){return <SignUp  ontoggle={togfunct}/> }
+ 
 
-
-  } else {
+  }else {
     return (
       <div>
         <Routes>

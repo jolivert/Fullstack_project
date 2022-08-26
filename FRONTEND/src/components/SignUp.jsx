@@ -4,7 +4,7 @@ import '../assets/style/signUp.css';
 import { Link } from 'react-router-dom';
 import * as api from "./api";
 
-const SignUp = ( ontoggle) => {
+const SignUp = ({ontoggle}) => {
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -16,6 +16,7 @@ const SignUp = ( ontoggle) => {
   const [checkedTM, setCheckedTM] = useState(false);
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
+  const [mode, setMode] = useState("login"); 
 
 
   const handleUserTypeChange = event => {
