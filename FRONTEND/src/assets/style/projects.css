@@ -1,0 +1,121 @@
+body{
+    background-color: #41527E;
+}
+
+.projectpage{
+    display: flex;
+}
+
+h3{
+    color: white;
+    font-size: 25px;
+}
+
+/* div de creación de proyectos */
+.create{
+    width: 25%;
+    margin: 30px;
+}
+
+/* div lista de proyectos */
+.list {
+    width: 50%;
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list ul {
+    padding: 0;
+    width: 100%;
+}
+
+#listitem {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    /* justify-content: start; */
+    align-items: center;
+    padding: 25px;
+    padding-right: 35px;
+    margin: 10px;
+    gap: 35px;
+    width: 100%;
+}
+
+#listitem div {
+    /* background-color: aqua; */
+}
+
+
+.icon {
+    height: 1.5rem;
+}
+
+/* Para eliminar los margenes entre el titulo y el poname: */
+#listitem h3{
+    color: #FE4B2B;
+    font-size: 25px;
+    margin: 0;
+    width: 120px;
+}
+
+p {
+    margin: 0;
+}
+
+.new-project{
+    color: white;
+}
+
+
+.btn-projects {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: large;
+    font-weight: 700;
+    margin-top: 1em;
+    color: #ffffff;
+    border: none;
+    width: 106px;
+    height: 67px;
+    background: #fe4b2b;
+    border-radius: 44px;
+    margin-top: 2em;
+}
+
+input{
+    margin: 5px;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px;
+    color: #ffffff;
+    width: 100%;
+    background-color:#4F6290;
+}
+
+#title {
+    background-color: #41527E;
+    border-radius: 0;
+    font-weight: lighter;
+    border-bottom: 1px solid white;
+}
+
+textarea {
+    background-color: #4F6290;
+    width: 100%;
+    height: 150px;
+    margin: 5px;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: lighter;
+    resize: none;
+}
+
+::placeholder{
+    color: #ffffff;
+}

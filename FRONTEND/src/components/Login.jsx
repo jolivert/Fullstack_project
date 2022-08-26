@@ -1,5 +1,5 @@
-
-import React , { useState }from 'react'
+import '../assets/style/login.css'
+import React , { useState } from 'react'
 import "../assets/style/login.css";
 import * as api from "./api";
 
@@ -67,7 +67,6 @@ const Login = ({ onLogin, ontoggle }) => {
         <p className="registerNow">
           if you haven’t Registered yet ? <button  onClick={togglemode}><span> Register Now</span>{" "} </button>
         </p>
-     
     </div>
   );
 };

@@ -14,7 +14,9 @@ const Initial = () => {
     <br />
       <Link to="Tasks">-  ir a tasks</Link>
     <br />
-    <Link to="TodoTasks">-  ir a to do tasks</Link>
+      <Link to="TodoTasks">-  ir a to do tasks</Link>
+    <br />
+      <Link to="projects">-  ir a projects</Link>
     </div>
    
   )
