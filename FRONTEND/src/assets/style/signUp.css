@@ -133,8 +133,10 @@
   color: #ffffff;
   margin: 1em;
 }
-.login_back span{
+.login_back button{
   color: #fe4b2b;
+  border: none;
+  background-color: transparent;
 }
 
 @media (max-height: 800px) {
