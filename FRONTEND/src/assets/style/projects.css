@@ -28,6 +28,7 @@ h3{
 
 .list ul {
     padding: 0;
+    width: 100%;
 }
 
 #listitem {
@@ -40,6 +41,7 @@ h3{
     padding-right: 35px;
     margin: 10px;
     gap: 35px;
+    width: 100%;
 }
 
 #listitem div {
@@ -68,7 +70,7 @@ p {
 }
 
 
-button {
+.btn-projects {
     display: flex;
     justify-content: space-around;
     align-items: center;
