@@ -8,16 +8,25 @@ const Login = ({ onLogin, ontoggle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mode, setMode] = useState("register"); 
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState(false);
+  const [contentMessage, setContentMessage] = useState("");
 
   const login = async (userData) => {
     const { success, token, error } = await api.login(userData);
+    setMessage(true);
     if (success) {
       onLogin(token);
+      setContentMessage("Log In was successful!");
     } else {
-      setMessage(error);
+      setContentMessage(error);
     }
   };
+
+  const ContentMessage = () => (
+    <p className="message_feedback">
+          {contentMessage}
+    </p>
+  );
 
   const submit = (e) => {
     e.preventDefault();
@@ -50,12 +59,13 @@ const Login = ({ onLogin, ontoggle }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
-        <button>Login</button>
+        <button onClick={submit}>Sign Up</button>
+        { message ? <ContentMessage /> : null} {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
+       
       </form>
       
         <p className="registerNow">
-          if you haven’t Registered yet ?<button  onClick={togglemode}><span> Register Now</span>{" "} </button>
+          if you haven’t Registered yet ? <button  onClick={togglemode}><span> Register Now</span>{" "} </button>
         </p>
     </div>
   );
