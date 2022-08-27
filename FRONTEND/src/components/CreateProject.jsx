@@ -4,7 +4,7 @@ import * as api from "./api";
 // import '../assets/style/header.css'
 
 
-const CreateProject = () => {
+const CreateProject = (props) => {
   
   const [Title, setTitle] = React.useState('');
   const [Po, setPo] = React.useState('');
@@ -12,15 +12,20 @@ const CreateProject = () => {
 
   // // const Data = [{Po, Title, Description}]
 
-  const [Data,setData] = React.useState([]);
+  // const [Data,setData] = React.useState([]);
     
 
   const SaveProjects = (e) => {
      e.preventDefault()
-
-     setData([...Data,{title:Title, po:Po, description:Description}])
+     const proy = {
+      title:Title,
+      po:Po,
+      description:Description
+     }
+     props.onNewProject(proy);
+    //  setData([...Data,{title:Title, po:Po, description:Description}])
      e.target.reset()
-     console.log(Data);
+     console.log(proy);
   }
 
   return (
