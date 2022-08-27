@@ -86,7 +86,7 @@ p {
     margin-top: 2em;
 }
 
-input{
+.new-project input{
     margin: 5px;
     border: 0;
     border-radius: 4px;

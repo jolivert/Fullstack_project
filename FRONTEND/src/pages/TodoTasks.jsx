@@ -16,7 +16,7 @@ const TodoTasks = () => {
         <label htmlFor="">
           <input type="text" placeholder=' Write your task title'/>
           <input type="text" placeholder=" Write the user story it's part of"/>
-          <input type="text" placeholder=' Write your task description'/>
+          <textarea type="text" placeholder=' Write your task description'></textarea>
         </label>
         <div className='boxButtonPost'>
         <button> + Add</button>
