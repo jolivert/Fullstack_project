@@ -1,13 +1,12 @@
-import '../assets/style/login.css'
-import React , { useState } from 'react'
+import "../assets/style/login.css";
+import React, { useState } from "react";
 import "../assets/style/login.css";
 import * as api from "./api";
 
-
-const Login = ({ onLogin, ontoggle }) => {
+const Login = ({ onLogin, onchangemode }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mode, setMode] = useState("register"); 
+  const [mode, setMode] = useState("register");
   const [message, setMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
 
@@ -23,9 +22,7 @@ const Login = ({ onLogin, ontoggle }) => {
   };
 
   const ContentMessage = () => (
-    <p className="message_feedback">
-          {contentMessage}
-    </p>
+    <p className="message_feedback">{contentMessage}</p>
   );
 
   const submit = (e) => {
@@ -37,9 +34,8 @@ const Login = ({ onLogin, ontoggle }) => {
   const togglemode = (e) => {
     e.preventDefault();
     setMode("register");
-    ontoggle(mode);
+    onchangemode(mode);
   };
-
 
   return (
     <div className="container-initial">
@@ -60,13 +56,16 @@ const Login = ({ onLogin, ontoggle }) => {
           />
         </div>
         <button onClick={submit}>Sign Up</button>
-        { message ? <ContentMessage /> : null} {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
-       
+        {message ? <ContentMessage /> : null}{" "}
+        {/*As seen in https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
       </form>
-      
-        <p className="registerNow">
-          if you haven’t Registered yet ? <button  onClick={togglemode}><span> Register Now</span>{" "} </button>
-        </p>
+
+      <p className="registerNow">
+        if you haven’t Registered yet ?{" "}
+        <button onClick={togglemode}>
+          <span> Register Now</span>{" "}
+        </button>
+      </p>
     </div>
   );
 };
