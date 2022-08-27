@@ -12,6 +12,8 @@ const Initial = () => {
       <br />
       <Link to="PlanningPocker">-  ir a PlanningPocker</Link>
     <br />
+    <Link to="AllVotesPlanningPocker">-  ir a votos finales PlanningPocker</Link>
+    <br />
       <Link to="Tasks">-  ir a tasks</Link>
     <br />
       <Link to="TodoTasks">-  ir a to do tasks</Link>

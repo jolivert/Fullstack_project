@@ -1,0 +1,88 @@
+.containerGetProject {
+    margin: 3em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+ .boxGetProject {
+    background: #ffffff16;
+    width: 650px;
+    margin: 1em;
+    padding: 2em;
+    border-radius: 10px;
+    color:#FFFF;
+ }
+.title-infoProject {
+    color:#FFFF;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+ }
+.descriptionProject {
+    margin-top: 1em;
+}
+.section-PlanningVotes{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.article-allVotes{
+    width: 80%;
+}
+.gridCardsVote{
+    display: grid;
+    margin: 3em;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+ 
+}
+.containerCard_finalVote{
+    margin-left: 2em;
+    background-color:#FFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1em;
+    max-width: 130px;
+}
+.containerCard_finalVote p{
+    margin-bottom: 1em;
+    color: #4F6291;
+    font-weight: bold;
+    
+    font-size: 18px;
+}
+.postVotePO{
+    background: #ffffff16;
+    width: auto;
+    height: 60px;
+    margin: 3em;
+    padding: 2em;
+    border-radius: 10px;
+    color:#FFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+.postVotePO input{
+    margin-left: 1em;
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 25px;
+    color: #FE4B2B;
+
+}
