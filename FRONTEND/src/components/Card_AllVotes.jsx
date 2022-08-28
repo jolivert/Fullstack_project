@@ -9,6 +9,10 @@ const Create_AllVotes = () => {
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
       </div>
     )
  
