@@ -25,12 +25,13 @@ const Projects = () => {
 
   const [Data, setData] = React.useState([]);
   const isProductOwner= true;
+  console.log(Data)
 
   let productOwnercomponent = null;
   if (isProductOwner) {
     productOwnercomponent = (
       <div class="create">
-        <CreateProject data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
+        <CreateProject hola="saludos" data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
       </div>
     );
   }
@@ -39,17 +40,16 @@ const Projects = () => {
       <Header />
       <div class="projectpage">
         {productOwnercomponent}
-
         <div class="list">
           <ul>
             {Data.map((item) => (
               <div id="listitem">
                 <div>
-                  <h3>{item.Title}</h3>
-                  <p id="po">{item.Po} </p>
+                  <h3>{item.title}</h3>
+                  <p id="po">{item.po} </p>
                 </div>
                 <div>
-                  <p>{item.Description} </p>
+                  <p>{item.description} </p>
                 </div>
                 <img class="icon" src="https://img.icons8.com/FE4B2B/delete" />
               </div>
