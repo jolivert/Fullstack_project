@@ -43,6 +43,28 @@ export const register = async (registerData) => {
   }
 };
 
+export const getTasksList = async (id) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/tasksproject/${id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const todos = await response.json();
+    if (response.status === 200) {
+      return { success: true, results: todos };
+    } else {
+      console.log("Couldn't fetch tasks");
+      return { success: false, error: "Coudln't fetch tasks" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
 export const getTodoList = async () => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("token"));
