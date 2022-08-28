@@ -16,6 +16,7 @@ function App() {
   const login = (token) => {
     setToken(token);
     localStorage.setItem("token", JSON.stringify(token));
+    console.log(token.userType);
   };
 
   const setmodefn = (toggle) => {

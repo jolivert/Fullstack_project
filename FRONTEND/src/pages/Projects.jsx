@@ -24,8 +24,10 @@ const Projects = () => {
   // const Data = [{Po, Title, Description}]
 
   const [Data, setData] = React.useState([]);
-  const isProductOwner= true;
-  console.log(Data)
+  const utype= JSON.parse(localStorage.getItem("token"));
+  console.log(utype.userType);
+  const isProductOwner= utype.userType==="Product Owner"??true;
+  console.log(isProductOwner)
 
   let productOwnercomponent = null;
   if (isProductOwner) {
@@ -44,7 +46,7 @@ const Projects = () => {
           <ul>
             {Data.map((item) => (
               <div id="listitem">
-                <div>
+                 <div>
                   <h3>{item.title}</h3>
                   <p id="po">{item.po} </p>
                 </div>
