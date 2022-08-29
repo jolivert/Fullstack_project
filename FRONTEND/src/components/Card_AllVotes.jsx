@@ -1,14 +1,14 @@
-const Create_AllVotes = () => {
+const Card_AllVotes = () => {
     return (
       <div className='gridCardsVote'>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote minor"><h1>1</h1><p>nombre:</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
+        <div className="containerCard_finalVote elderly"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
         <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
@@ -18,5 +18,5 @@ const Create_AllVotes = () => {
  
   }
   
-  export default Create_AllVotes
+  export default Card_AllVotes
   

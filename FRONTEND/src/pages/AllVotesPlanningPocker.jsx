@@ -21,15 +21,15 @@ const AllVotesPlanningPocker = () => {
     <div>
       <hero>
         <div id="header">
-          <h1>Planning Pocker</h1>
-          <h2>Team votes</h2>
+          <h1>Votes Planning Pocker</h1>
+          <h2> Project: título del proyecto evaluado</h2>
         </div>
       </hero>
       <section className="section-PlanningVotes">
         <article>
           <div className="containerGetProject">
             <div className="boxGetProject">
-              <section className="">
+              <section >     
                 <h2 className="title-infoProject"> Title Task </h2>
               </section>
               <section className="descriptionProject">
@@ -44,7 +44,10 @@ const AllVotesPlanningPocker = () => {
         </article>
         <article className="article-allVotes">
           <hr className="hr-allVotes" />
+        
+          <div >
           <Card_AllVotes />
+          </div>
           <hr className="hr-allVotes" />
         </article>
         {productOwnercomponent}

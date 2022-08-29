@@ -12,6 +12,7 @@
     border-radius: 10px;
     color:#FFFF;
  }
+
 .title-infoProject {
     color:#FFFF;
     font-style: normal;
@@ -53,9 +54,17 @@
     margin-bottom: 1em;
     color: #4F6291;
     font-weight: bold;
-    
     font-size: 18px;
 }
+
+.minor{
+    background-color: #f6dcd7;
+}
+.elderly{
+    background-color:#E3F8E6 ;
+}
+
+
 .postVotePO{
     background: #ffffff16;
     width: auto;
