@@ -10,7 +10,18 @@ if (isProductOwner) {
     <div className="postVotePo">
       <form className="postVotePO" action="" method="post">
         <p>Task final vote: </p>
-        <input name="" id="" placeholder="..." />
+        <input name="" id="" placeholder=".🔏" />
+
+      {/* <input
+              className=""
+              id=""
+              type="text"
+              placeholder="..."
+              value={story_point}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+        /> */}
+
       </form>
     </div>
   )
