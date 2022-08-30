@@ -48,7 +48,7 @@ main {
 }
 
 .containerPostTasks input,
-.taskDescription {
+.taskDescriptionClass {
   margin: 0.5em;
   padding: 1em;
   height: auto;
@@ -62,7 +62,7 @@ main {
   border-radius: 6px;
 }
 
-.taskDescription {
+.taskDescriptionClass {
   width: auto;
   height: 150px;
 }

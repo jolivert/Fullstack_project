@@ -8,9 +8,9 @@ const router = express.Router();
  });*/
 
 //create a task
-router.post("/task", (req, res) => {
+router.post("/task", async (req, res) => {
   const task = taskSchema(req.body);
-  task
+  await task
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -44,9 +44,9 @@ router.put("/task/:id", (req, res) => {
 });
 
 //delete a task
-router.delete("/task/:id", (req, res) => {
+router.delete("/task/:id", async (req, res) => {
   const { id } = req.params;
-  taskSchema
+  await taskSchema
     .remove({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -63,7 +63,6 @@ router.get("/task/:id", (req, res) => {
 
 //get all tasks of project
 router.get("/tasksproject/:id", async(req, res) => {
-  console.log("/tasksproject/:id");
   const { id } = req.params;
   await taskSchema
     .find({"project_id":id})
