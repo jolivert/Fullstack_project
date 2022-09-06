@@ -35,7 +35,7 @@ h3{
     background-color: white;
     border-radius: 8px;
     display: flex;
-    /* justify-content: start; */
+    /* justify-content: space-between; */
     align-items: center;
     padding: 25px;
     padding-right: 35px;
@@ -44,8 +44,8 @@ h3{
     width: 100%;
 }
 
-#listitem div {
-    /* background-color: aqua; */
+#description {
+    width: 100%;
 }
 
 
@@ -58,7 +58,7 @@ h3{
     color: #FE4B2B;
     font-size: 25px;
     margin: 0;
-    width: 120px;
+    width: 130px;
 }
 
 p {
@@ -79,8 +79,8 @@ p {
     margin-top: 1em;
     color: #ffffff;
     border: none;
-    width: 106px;
-    height: 67px;
+    width: 90px;
+    height: 50px;
     background: #fe4b2b;
     border-radius: 44px;
     margin-top: 2em;
@@ -94,6 +94,20 @@ p {
     color: #ffffff;
     width: 100%;
     background-color:#4F6290;
+}
+
+#add-member {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#add-member button {
+    width: 3rem;
+    height: 2rem;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.2);
+    border:0;
 }
 
 #title {

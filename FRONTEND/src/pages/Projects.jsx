@@ -25,13 +25,13 @@ const Projects = () => {
 
   const [Data, setData] = React.useState([]);
   const isProductOwner= true;
-  console.log(Data)
+  // console.log(Data)
 
   let productOwnercomponent = null;
   if (isProductOwner) {
     productOwnercomponent = (
       <div class="create">
-        <CreateProject hola="saludos" data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
+        <CreateProject data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
       </div>
     );
   }
@@ -48,7 +48,7 @@ const Projects = () => {
                   <h3>{item.title}</h3>
                   <p id="po">{item.po} </p>
                 </div>
-                <div>
+                <div id="description">
                   <p>{item.description} </p>
                 </div>
                 <img class="icon" src="https://img.icons8.com/FE4B2B/delete" />
