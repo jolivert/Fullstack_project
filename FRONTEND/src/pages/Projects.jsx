@@ -25,9 +25,8 @@ const Projects = () => {
 
   const [Data, setData] = React.useState([]);
   const utype= JSON.parse(localStorage.getItem("token"));
-  console.log(utype.userType);
   const isProductOwner= utype.userType==="Product Owner"??true;
-  console.log(isProductOwner)
+  
 
   let productOwnercomponent = null;
   if (isProductOwner) {
