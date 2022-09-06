@@ -61,7 +61,7 @@ const TodoTasks = () => {
   const onDestroyTask= () => {
     setTasksCount(prevCounter => prevCounter - 1);
   };
-
+  
   return (
     <div className="containerTodoTasks">
       <header>
