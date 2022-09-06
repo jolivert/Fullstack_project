@@ -22,7 +22,7 @@ const authenticateUser = async ({ email, password }) => {
   if (!passwordMatches) {
     errUnauthorized(`Wrong email or password`);
   }
-  const token = auth.createToken(email);
+  const token = auth.createToken(email, user.userType);
   return token;
 }
 

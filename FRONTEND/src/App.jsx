@@ -15,14 +15,17 @@ function App() {
   const [mode, setMode] = useState('login')
 
   const login = (token) => {
-    setToken(token)
-    localStorage.setItem('token', JSON.stringify(token))
-  }
+
+    setToken(token);
+    localStorage.setItem("token", JSON.stringify(token));
+    
+  };
 
   const setmodefn = (toggle) => {
-    console.log(toggle)
-    setMode(toggle)
-  }
+    
+    setMode(toggle);
+  };
+
 
   if (token === null) {
     if (mode === 'login') {
