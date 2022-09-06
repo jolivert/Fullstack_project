@@ -20,7 +20,9 @@ function Task(props) {
           <button>VOTE</button>
         </div>
         <button>
-          <div className="imgPaperBin" onClick={destroyTaskActivate}>.</div>
+          <div className="imgPaperBin" onClick={destroyTaskActivate}>
+          <img class="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
+          </div>
         </button>
       </section>
       <section className="descriptionTask"> {props.children.description} </section>

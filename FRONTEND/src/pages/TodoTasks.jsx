@@ -8,7 +8,7 @@ const TodoTasks = () => {
   //id of project should come as prop
   const [project_id, setProjId] = useState("630b63011ee9180e38108a01");
   //title of project should come as prop
-  const [project_title, setProjTitle] = useState("Project Juan");
+  const [project_title, setProjTitle] = useState("Project One");
   const [tasksCount, setTasksCount] = useState(0);
   const [data, setData] = useState([]);
   const [showMessage, setViewMessage] = useState(false);
@@ -60,13 +60,12 @@ const TodoTasks = () => {
 
   const onDestroyTask= () => {
     setTasksCount(prevCounter => prevCounter - 1);
-    console.log(tasksCount);
   };
 
   return (
     <div className="containerTodoTasks">
       <header>
-        <h1 className="title">Name Project Selected</h1>
+        <h1 className="title">{project_title}</h1>
         <p>To Do Tasks</p>
       </header>
 
