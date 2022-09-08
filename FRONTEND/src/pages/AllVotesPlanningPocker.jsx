@@ -5,10 +5,10 @@ import BtnLogout from '../components/BtnLogout'
 
 
 const AllVotesPlanningPocker = () => {
-  //const { user, setUser } = useUser();
-  // const [Data, setData] = React.useState([])
 
-  const isProductOwner = true
+  const [Data, setData] = React.useState([]);
+  const utype= JSON.parse(localStorage.getItem("token"));
+  const isProductOwner= utype.userType==="Product Owner"??true;
   let productOwnercomponent = null
 
   if (isProductOwner) {

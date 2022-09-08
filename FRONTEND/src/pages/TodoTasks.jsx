@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../assets/style/TodoTasks.css";
 import * as api from "../components/api";
-import axios from "axios";
 import Task from "./Task";
 
 const TodoTasks = () => {
