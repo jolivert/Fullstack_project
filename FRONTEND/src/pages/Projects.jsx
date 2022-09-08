@@ -20,14 +20,24 @@ const Projects = () => {
   const [Title, setTitle] = React.useState("ñe");
   const [Po, setPo] = React.useState("ñe");
   const [Description, setDescription] = React.useState("ñe");
-
-  // const Data = [{Po, Title, Description}]
-
   const [Data, setData] = React.useState([]);
   const isProductOwner= true;
   // console.log(Data)
 
+  //TODO: create useffect to gather projects from the bbdd once the page is loaded. Set into Data
+  //TODO: when one element is destroyed, execute useffect and set into Data, but see if need mapping of the data coming from the bbdd to match
+  // the Data.map of line 47
+  //TODO: other way to do the destroy is to then filter the remaining Data array elements :
+
+  const onDestroyProject = (indexProj) => {
+    var filteredProjects = Data.filter(function(value, index, arr){ 
+      return index != indexProj;
+    });
+    setData(filteredProjects);
+  };
+
   let productOwnercomponent = null;
+
   if (isProductOwner) {
     productOwnercomponent = (
       <div class="create">
@@ -43,7 +53,7 @@ const Projects = () => {
         <div class="list">
           <ul>
             {Data.map((item) => (
-              <div id="listitem">
+              <div id="listitem">{/*TODO: once the proj is created in CreateProject, send back the id from the bbdd to use here as key*/}
                 <div>
                   <h3>{item.title}</h3>
                   <p id="po">{item.po} </p>

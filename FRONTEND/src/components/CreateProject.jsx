@@ -10,18 +10,27 @@ const CreateProject = (props) => {
   const [member, setMember] = useState("");
   const [team, setTeam] = useState([]);
   const [proj, setProj] = useState({});
+  const [showMessage, setViewMessage] = useState(false);
+  const [contentMessage, setContentMessage] = useState("");
 
-  // // const Data = [{Po, Title, Description}]
-
-  // const [Data,setData] = React.useState([]);
+  const ContentMessage = () => <p className="message_feedback">{contentMessage}</p>;
 
   const SaveProject = (e) => {
     e.preventDefault();
-    addData();
-    props.onNewProject(proj);
-    e.target.reset();
-    setProj(proj => proj={});
-    console.log(proj);
+    if(title == "" || description == "" || team.length == 0){
+      setViewMessage(true);
+      setContentMessage("No field can be empty for a new project");
+    }else{
+      setViewMessage(false);
+      addData();
+      props.onNewProject(proj);
+      e.target.reset();
+      setTeam([]);
+      setProj(proj => proj={});
+      setTitle("");
+      setDescription("")
+      console.log(proj);
+    }
   };
 
   const addData = () =>{
@@ -62,11 +71,11 @@ const CreateProject = (props) => {
             value={member}
             onChange={(e) => setMember(e.target.value)}
           />
-          {/* <input type="text" placeholder='Member Name' onChange={(e) => setMembers(Members=>[...Members,e.targ */}
           <button type='button' onClick={addMember}>
             ADD
           </button>
         </div>
+        {showMessage ? <ContentMessage /> : null}{" "}
         <div>
           <ul>
             {team.map((item) => (
