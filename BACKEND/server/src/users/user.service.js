@@ -29,7 +29,16 @@ const authenticateUser = async ({ email, password }) => {
   return token;
 }
 
+const findUserByUsername = async (username) => {
+  const user = await User.findOne({ username }).lean().exec();
+  if (!user) {
+    errUnauthorized(`Wrong email or password`);
+  }
+  return user._id;
+}
+
 module.exports = {
   createUser,
   authenticateUser,
+  findUserByUsername,
 }

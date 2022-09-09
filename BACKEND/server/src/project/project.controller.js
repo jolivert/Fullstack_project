@@ -5,10 +5,10 @@ const router = express.Router();
 
 
  //create a project
- router.post("/project",needsAuthToken,(req, res)=>{
+ router.post("/project", async (req, res)=>{
     //res.send("create project");
    const project = projectSchema(req.body);
-   project
+   await project
    .save() 
    .then((data)=>res.json(data))
    .catch((error)=> res.json({message: error}));
