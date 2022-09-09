@@ -22,7 +22,10 @@ const authenticateUser = async ({ email, password }) => {
   if (!passwordMatches) {
     errUnauthorized(`Wrong email or password`);
   }
-  const token = auth.createToken(email);
+  
+  const uid= JSON.stringify(user._id);
+  console.log(uid);
+  const token = auth.createToken(email, user.userType, uid );
   return token;
 }
 

@@ -21,7 +21,7 @@ const Projects = () => {
   const [Po, setPo] = React.useState("ñe");
   const [Description, setDescription] = React.useState("ñe");
   const [Data, setData] = React.useState([]);
-  const isProductOwner= true;
+
   // console.log(Data)
 
   //TODO: create useffect to gather projects from the bbdd once the page is loaded. Set into Data
@@ -35,6 +35,9 @@ const Projects = () => {
     });
     setData(filteredProjects);
   };
+
+  const utype= JSON.parse(localStorage.getItem("token"));
+  const isProductOwner= utype.userType==="PO"??true;
 
   let productOwnercomponent = null;
 
