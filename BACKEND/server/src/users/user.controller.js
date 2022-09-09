@@ -34,6 +34,13 @@ const register = async (req, res) => {
   res.status(200).json({ status: `User created` });
 };
 
+const checkUserExists = async (req, res) => {
+  const {username} = req.params;
+  //TODO: authenticate user
+  const userId = await users.findUserByUsername(username);
+  res.status(200).json(userId);
+};
+
 const test = async (req, res) => {
   res.status(200).json({ ok: true, user: req.userEmail });
 };
@@ -41,6 +48,7 @@ const test = async (req, res) => {
 const addRoutesTo = (app) => {
   app.post("/login", catchErrors(login));
   app.post("/register", catchErrors(register));
+  app.get("/users/:username", catchErrors(checkUserExists));
   //TODO: isDevelopment necessary?
   /*if (config.isDevelopment) {
     app.get("/test", needsAuthToken, catchErrors(test));

@@ -1,7 +1,6 @@
 import React, { useState, useEffect }from "react";
 import Projects from "../pages/Projects";
 import * as api from "./api";
-// import '../assets/style/header.css'
 
 const CreateProject = (props) => {
   const [title, setTitle] = useState("");
@@ -9,48 +8,65 @@ const CreateProject = (props) => {
   const [description, setDescription] = useState("");
   const [member, setMember] = useState("");
   const [team, setTeam] = useState([]);
+  const [teamIds, setTeamIds] = useState([]);
   const [proj, setProj] = useState({});
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
+  //TODO: get user id from the cookies
+  const [userId, setUserId] = useState("6308fafe5b7c059a452a3c79");
 
   const ContentMessage = () => <p className="message_feedback">{contentMessage}</p>;
 
-  const SaveProject = (e) => {
+  const SaveProject = async (e) => {
     e.preventDefault();
     if(title == "" || description == "" || team.length == 0){
       setViewMessage(true);
       setContentMessage("No field can be empty for a new project");
     }else{
-      setViewMessage(false);
-      addData();
-      props.onNewProject(proj);
-      e.target.reset();
-      setTeam([]);
-      setProj(proj => proj={});
-      setTitle("");
-      setDescription("")
-      console.log(proj);
+      const { success, results, error}  = await api.createProject({title,description,teamIds,userId});
+      if(success){
+        setViewMessage(false);
+        addData(results._id);
+        props.onNewProject(proj);
+        e.target.reset();
+        setTeam([]);
+        setTeamIds([]);
+        setProj(proj => proj={});
+        setTitle("");
+        setDescription("");
+      }else{
+        setViewMessage(true);
+        setContentMessage(`There was a server error: ${error}`);
+      }
     }
   };
 
-  const addData = () =>{
+  const addData = (projId) =>{
     setProj({
       title,
       description,
+      projId,
     });
   }
-  
 
-  const addMember = () => {
-    setTeam((Team) => [...Team, member]);
-    setMember('');
+  const addMember = async () => {
+    const { success, userId, error }  = await api.checkUserExists(member);
+    if(success){
+      setViewMessage(false);
+      setTeam((Team) => [...Team, member]);
+      setTeamIds((TeamIds) => [...TeamIds, userId]);
+      setMember('');
+    }else{
+      setViewMessage(true);
+      setContentMessage(`${error}`);
+    }
   };
 
   return (
     <div>
       <h3>New project</h3>
       {/* <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
-      <form class="new-project" onSubmit={SaveProject}>
+      <form className="new-project" onSubmit={SaveProject}>
         <input
           type="text"
           id="title"

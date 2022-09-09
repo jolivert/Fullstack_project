@@ -84,3 +84,53 @@ export const addTodo = async ({ what }) => {
     return { success: false, error: `Network error: ${e.message}` };
   }
 };
+
+export const createProject = async (projectData) => {
+
+  console.log(`registerData: ${projectData.title}`);
+
+  const projectDataMapped = {
+    project_name: projectData.title,
+    description: projectData.description,
+    product_owner: projectData.userId,
+    team_members: projectData.teamIds,
+  };
+
+  try {
+    const response = await fetch(`${BASE_URL}/api/project`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(projectDataMapped),
+    });
+    const result = await response.json();
+    if (response.status === 200) {
+      return { success: true, results: result };
+    } else {
+      return { success: false, error: result.error };
+    }
+  } catch (e) {
+    return { success: false, error: e.message };
+  }
+};
+
+export const checkUserExists = async (username) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/users/${username}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const userId = await response.json();
+    if (response.status === 200) {
+      return { success: true, userId: userId };
+    } else {
+      return { success: false, error: "Couldn't find user" };
+    }
+  } catch (e) {
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
