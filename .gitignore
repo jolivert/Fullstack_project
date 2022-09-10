@@ -1,2 +1,3 @@
 BACKEND/server/node_modules/
 BACKEND/server/package-lock.json
+BACKEND/server/request.http
