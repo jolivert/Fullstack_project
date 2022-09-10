@@ -5,7 +5,7 @@ const router = express.Router();
 
 
  //create a project
- router.post("/project", async (req, res)=>{
+ router.post("/project", needsAuthToken,async (req, res)=>{
     //res.send("create project");
    const project = projectSchema(req.body);
    await project

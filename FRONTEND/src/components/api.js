@@ -152,6 +152,7 @@ export const addTodo = async ({ what }) => {
 export const createProject = async (projectData) => {
 
   console.log(`registerData: ${projectData.title}`);
+  const { accessToken } = JSON.parse(localStorage.getItem("token"));
 
   const projectDataMapped = {
     project_name: projectData.title,
@@ -164,6 +165,7 @@ export const createProject = async (projectData) => {
     const response = await fetch(`${BASE_URL}/api/project`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(projectDataMapped),
