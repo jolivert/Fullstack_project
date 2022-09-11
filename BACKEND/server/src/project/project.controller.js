@@ -27,10 +27,21 @@ const router = express.Router();
   router.get("/project/:id",(req, res)=>{
     const {id}= req.params;
     projectSchema
-    .findById(id) 
+    .find({_id:id}) 
     .then((data)=>res.json(data))
     .catch((error)=> res.json({message: error}));
   });
+
+  //get a project by po id
+  router.get("/projects/:id",(req, res)=>{
+    const {id}= req.params;
+    projectSchema
+    .find({product_owner:id}) 
+    .then((data)=>res.json(data))
+    .catch((error)=> res.json({message: error}));
+  });
+
+ 
 
     //update a projects
     router.put("/project/:id",(req, res)=>{

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header.jsx";
 import CreateProject from "../components/CreateProject.jsx";
 import "../assets/style/projects.css";
+import * as api from "../components/api";
 
 const Projects = () => {
   // const SaveProjects = () => {
@@ -18,13 +19,33 @@ const Projects = () => {
   const [Po, setPo] = React.useState("ñe");
   const [Description, setDescription] = React.useState("ñe");
   const [Data, setData] = React.useState([]);
+  const [showMessage, setViewMessage] = React.useState(false);
+  const [contentMessage, setContentMessage] = React.useState("");
+  const [proba, setProba] = React.useState([]);
 
   const utype= JSON.parse(localStorage.getItem("token"));
   const isProductOwner= utype.userType==="PO"??true;
+  const userName= utype.user;
+
+  //obtener proyectos:
+  const getData = async () => {
+    const { success, results} = await api.getProjectList();
+
+    if (!success) {
+      setViewMessage(true);
+      setContentMessage("Error retrieving project tasks");
+    } else {
+      setProba(results);
+      // setTasksCount(results.length)
+    }
+  };
+
+  
 
 
   useEffect( ()=> {
-
+    getData();
+    console.log(proba);
   },[]);
 
   // console.log(Data)

@@ -65,6 +65,52 @@ export const getTasksList = async (id) => {
   }
 }
 
+//obtener proyectos:
+export const getProjectList = async () => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/project`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const projects = await response.json()
+    if (response.status === 200) {
+      return { success: true, results: projects };
+    } else {
+      console.log("Couldn't fetch projects");
+      return { success: false, error: "Couldn't fetch projects" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
+//obtener proyectos solo del Po
+export const getProjectByPo = async () => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/project/:po`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const projects = await response.json()
+    if (response.status === 200) {
+      return { success: true, results: projects };
+    } else {
+      console.log("Couldn't fetch projects");
+      return { success: false, error: "Couldn't fetch projects" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
 export const saveTask = async (task) => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("token"));
@@ -198,3 +244,25 @@ export const checkUserExists = async (username) => {
     return { success: false, error: `Network error: ${e.message}` };
   }
 }
+
+//
+
+// export const getUser = async (id) => {
+//   try {
+//     const { accessToken } = JSON.parse(localStorage.getItem("token"));
+//     const response = await fetch(`${BASE_URL}/users/${id}`, {
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//     });
+//     const userName = await response.json();
+//     if (response.status === 200) {
+//       return { success: true, userName: userName};
+//     } else {
+//       return { success: false, error: "Couldn't find user" };
+//     }
+//   } catch (e) {
+//     return { success: false, error: `Network error: ${e.message}` };
+//   }
+// }
