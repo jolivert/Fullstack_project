@@ -14,13 +14,18 @@ const Projects = () => {
   //   return info;
   // }
 
-  // useEffect( ()=> {
-  // },[<CreateProject/>]);
-
   const [Title, setTitle] = React.useState("ñe");
   const [Po, setPo] = React.useState("ñe");
   const [Description, setDescription] = React.useState("ñe");
   const [Data, setData] = React.useState([]);
+
+  const utype= JSON.parse(localStorage.getItem("token"));
+  const isProductOwner= utype.userType==="PO"??true;
+
+
+  useEffect( ()=> {
+
+  },[]);
 
   // console.log(Data)
 
@@ -36,8 +41,7 @@ const Projects = () => {
     setData(filteredProjects);
   };
 
-  const utype= JSON.parse(localStorage.getItem("token"));
-  const isProductOwner= utype.userType==="PO"??true;
+  
 
   let productOwnercomponent = null;
 
@@ -48,6 +52,7 @@ const Projects = () => {
       </div>
     );
   }
+
   return (
     <div>
       <Header />
@@ -56,10 +61,10 @@ const Projects = () => {
         <div class="list">
           <ul>
             {Data.map((item) => (
-              <div id="listitem">{/*TODO: once the proj is created in CreateProject, send back the id from the bbdd to use here as key*/}
+              <div id="listitem" key={item.projId}>{/*TODO: once the proj is created in CreateProject, send back the id from the bbdd to use here as key*/}
                 <div>
                   <h3>{item.title}</h3>
-                  <p id="po">{item.po} </p>
+                  <p id="po">{item.po}</p>
                 </div>
                 <div id="description">
                   <p>{item.description} </p>

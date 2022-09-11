@@ -16,7 +16,7 @@ const router = express.Router();
  });
 
  //get all projects
- router.get("/project", needsAuthToken,(req, res)=>{
+ router.get("/project",(req, res)=>{
    projectSchema
    .find() 
    .then((data)=>res.json(data))
@@ -24,7 +24,7 @@ const router = express.Router();
  });
 
   //get a projects
-  router.get("/project/:id",needsAuthToken,(req, res)=>{
+  router.get("/project/:id",(req, res)=>{
     const {id}= req.params;
     projectSchema
     .findById(id) 
