@@ -1,7 +1,7 @@
-const Card_AllVotes = ({it}) => {
+const Card_AllVotes = ({usernameVote, vote}) => {
     return (
-        
-        <div className="containerCard_finalVote"><h1>{it}</h1><p>name</p></div>
+
+        <div className="containerCard_finalVote"><h1>{vote}</h1><p>{usernameVote}</p></div>
         )
  
       }
