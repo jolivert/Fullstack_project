@@ -107,9 +107,8 @@
     background-color:#E3F8E6 ;
 }
 
-
-.postVotePO{
-    background: #ffffff16;
+.finalVote{
+    background: #e9d7d716;
     width: auto;
     height: 60px;
     margin: 3em;
@@ -121,9 +120,8 @@
     align-items: center;
     font-weight: 700;
     font-size: 20px;
-    
 }
-.postVotePO input{
+.finalVote input{
     margin-left: 1em;
     height: 40px;
     width: 50px;
@@ -137,5 +135,7 @@
     font-size: 25px;
     color: #FE4B2B;
 
-}
+} 
+
+
 

@@ -3,20 +3,16 @@ import React, { useState, useEffect } from 'react'
 import Card_AllVotes from '../components/Card_AllVotes.jsx'
 import '../assets/style/AllVotesPlanningPocker.css'
 import BtnLogout from '../components/BtnLogout'
-
+import { useNavigate } from "react-router-dom";
 
 const AllVotesPlanningPocker = (props) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const testLocalStore = token.tokenType; 
-  const [task_id, setTaskId] = useState("62f988b36ebb6230ed3d9a97");
-  //const [voteTask, setVoteTask] = useState("☕");
-  const [project_name, setProjectName] = React.useState("User Story");
-  const [task_name, setTaskName] = React.useState("Title first task");
-  const [description, setDescription] = React.useState("Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias voluptates pariatur quis velit nam quo fuga, excepturi distinctio, molestiae repellendus deserunt quam autem quibusdam, tenetur quod nemo eos placeat a.");
-  //const [names, setNames] = useState(["Davina","", ""...]);
-  //const [showVotes, setShowVotes] = useState([["10","3","5","☕","20","13","5","1","3","2","8",1/2],["Davina","Pepe", "Marina", "Gerard", "Maria", "Leo", "Marta", "Pau", "Jose", "Lolo", "Pilar", "Yaritza"]]);
-  //const [showVotes, setShowVotes] = useState(["10","3","5","☕","20","13","5","1","3","2","8",1/2]);  
-
+  const project_name = React.useState("User Story");
+  const task_name = React.useState("Title first task");
+  const description = React.useState("Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias voluptates pariatur quis velit nam quo fuga, excepturi distinctio, molestiae repellendus deserunt quam autem quibusdam, tenetur quod nemo eos placeat a.");
+  const [FinalVote, setFinalVote] = useState()
+  const navigate = useNavigate();
   const arrayOfObjects = [
     { usernameVote: "Davina", vote: "10" },
     { usernameVote: "Pepe", vote: "3" },
@@ -32,9 +28,15 @@ const AllVotesPlanningPocker = (props) => {
     { usernameVote: "Antonio", vote: "5" },
   ];
 
-  const [FinalVote, setFinalVote] = useState()
+  const submit = async (e) => {
+    try {
+      e.preventDefault();
+      navigate("/TodoTasks", { replace: true });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
    
-
 
 
   const isProductOwner = true
@@ -42,8 +44,8 @@ const AllVotesPlanningPocker = (props) => {
 
   if (isProductOwner) {
     productOwnercomponent = (
-      <div className="postVotePo">
-        <form className="postVotePO" action="" method="post">
+      <div>
+        <form className="finalVote" action="" method="post" onSubmit={submit}>
           <p>Task final vote: </p>
           <input name="" id="" placeholder=".🔏"  onChange={(e) => setFinalVote(e.target.value)}/>
         </form>
@@ -83,16 +85,12 @@ const AllVotesPlanningPocker = (props) => {
           
           
           { arrayOfObjects.map(({usernameVote, vote})=>(
-          <div >
+          <div >   
             <Card_AllVotes usernameVote={usernameVote} vote={vote} />
           </div>
          ))}
 
          </div>
-
-          {/* <div className=''>
-            <Card_AllVotes />
-          </div> */}
 
           <hr className="hr-allVotes" />
         </article>
