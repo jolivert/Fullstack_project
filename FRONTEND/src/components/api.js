@@ -151,6 +151,7 @@ export const addTodo = async ({ what }) => {
 
 export const createProject = async (projectData) => {
 
+  const { accessToken } = JSON.parse(localStorage.getItem("token"));
   console.log(`registerData: ${projectData.title}`);
 
   const projectDataMapped = {
@@ -164,6 +165,7 @@ export const createProject = async (projectData) => {
     const response = await fetch(`${BASE_URL}/api/project`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(projectDataMapped),
@@ -197,4 +199,24 @@ export const checkUserExists = async (username) => {
   } catch (e) {
     return { success: false, error: `Network error: ${e.message}` };
   }
-}
+};
+
+export const destroyProject = async (projId) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/project/${projId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const todos = await response.json();
+    if (response.status === 200) {
+      return { success: true, results: todos };
+    } else {
+      return { success: false, error: "Couldn't delete task" };
+    }
+  } catch (e) {
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+};

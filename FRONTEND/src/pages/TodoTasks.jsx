@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import "../assets/style/TodoTasks.css";
 import * as api from "../components/api";
-import axios from "axios";
 import Task from "./Task";
+import { useLocation, useParams } from "react-router-dom";
 
 const TodoTasks = () => {
-  //id of project should come as prop
-  const [project_id, setProjId] = useState("630b63011ee9180e38108a01");
-  //title of project should come as prop
-  const [project_title, setProjTitle] = useState("Project One");
+  const location = useLocation();
+  const state = location.state;
+
+  //Unused. But it would be the way to use Params to retrieve the id and title from the URL
+  //const {id} = useParams();
+  //console.log(`id: ${id}`);
+
+  const [project_id, setProjId] = useState(state.projId);
+  const [project_title, setProjTitle] = useState(state.title);
   const [tasksCount, setTasksCount] = useState(0);
   const [data, setData] = useState([]);
   const [showMessage, setViewMessage] = useState(false);
@@ -21,7 +26,7 @@ const TodoTasks = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { success, results} = await api.getTasksList(project_id);
+      const { success, results} = await api.getTasksList(state.projId);
 
       if (!success) {
         setViewMessage(true);
@@ -37,7 +42,7 @@ const TodoTasks = () => {
     return () => {
       console.log("cleaning");
     };
-  }, [tasksCount]);
+  }, [tasksCount/*,id*/]);
 
   const saveTask = async () => {
     let task = {
