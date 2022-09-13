@@ -5,6 +5,7 @@ export const readToken = () => {
   }
   export const saveToken = (token) => {
     localStorage.setItem("token", JSON.stringify(token));
+    
   }
   export const deleteToken = () => {
     localStorage.removeItem("token");

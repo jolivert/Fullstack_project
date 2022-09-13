@@ -14,6 +14,19 @@ const AllVotesPlanningPocker = (props) => {
   const [FinalVote, setFinalVote] = useState()
   const navigate = useNavigate();
   const arrayOfObjects = [
+   
+    { usernameVote: "Davina", vote: "10" },
+    { usernameVote: "Pepe", vote: "3" },
+    { usernameVote: "Marina", vote: "5" },
+    { usernameVote: "Gerard", vote: "☕" },
+    { usernameVote: "Maria", vote: "20" },
+    { usernameVote: "Saray", vote: "13" },
+    { usernameVote: "David", vote: "5" },
+    { usernameVote: "Monica", vote: "1" },
+    { usernameVote: "Sol", vote: "3" },
+    { usernameVote: "Cristina", vote: "8" },
+    { usernameVote: "Mario", vote: "1/2" },
+    { usernameVote: "Antonio", vote: "5" },
     { usernameVote: "Davina", vote: "10" },
     { usernameVote: "Pepe", vote: "3" },
     { usernameVote: "Marina", vote: "5" },
@@ -47,10 +60,11 @@ const AllVotesPlanningPocker = (props) => {
       <div>
         <form className="finalVote" action="" method="post" onSubmit={submit}>
           <p>Task final vote: </p>
-          <input name="" id="" placeholder=".🔏"  onChange={(e) => setFinalVote(e.target.value)}/>
+          <input  placeholder=".🔏"  onChange={(e) => setFinalVote(e.target.value)}/>
         </form>
       </div>
     )
+    console.log(token)
   }
   
   
@@ -63,6 +77,7 @@ const AllVotesPlanningPocker = (props) => {
   
           <h1>Votes Planning Pocker</h1>
           <h2> Project:  {project_name}  {testLocalStore}</h2>
+           
         </div>
       </hero>
       <section className="section-PlanningVotes">

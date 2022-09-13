@@ -15,7 +15,7 @@ function App() {
   const [mode, setMode] = useState('login')
 
   const login = (token) => {
-
+    console.log(`login token:  ${accestoken}`)
     setToken(token);
     localStorage.setItem("token", JSON.stringify(token));
     
