@@ -26,8 +26,7 @@ const CreateProject = (props) => {
       const { success, results, error}  = await api.createProject({title,description,teamIds,userId});
       if(success){
         setViewMessage(false);
-        addData(results._id);
-        props.onNewProject(proj);
+        props.onNewProject({title: proj.title, description: proj.description, projId: results._id});
         e.target.reset();
         setTeam([]);
         setTeamIds([]);
@@ -41,11 +40,10 @@ const CreateProject = (props) => {
     }
   };
 
-  const addData = (projId) =>{
+  const addData = () =>{
     setProj({
       title,
       description,
-      projId,
     });
   }
 
