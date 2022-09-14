@@ -36,7 +36,16 @@ const router = express.Router();
   router.get("/projects/:id",(req, res)=>{
     const {id}= req.params;
     projectSchema
-    .find({product_owner:id}) 
+    .find({product_owner:id}).lean().exec() 
+    .then((data)=>res.json(data))
+    .catch((error)=> res.json({message: error}));
+  });
+
+  //get a project by team_members id
+  router.get("/myprojects/:id",(req, res)=>{
+    const {id}= req.params;
+    projectSchema
+    .find({team_members:[id]}).lean().exec() 
     .then((data)=>res.json(data))
     .catch((error)=> res.json({message: error}));
   });

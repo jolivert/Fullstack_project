@@ -26,26 +26,61 @@ const Projects = () => {
   const utype= JSON.parse(localStorage.getItem("token"));
   const isProductOwner= utype.userType==="PO"??true;
   const userName= utype.user;
+  const myId= "631d8ecb47f6a7f7432adcb8"
+  // console.log(myId);
+
 
   //obtener proyectos:
-  const getData = async () => {
-    const { success, results} = await api.getProjectList();
+  // const getData = async () => {
+  //   const { success, results} = await api.getProjectList();
+
+  //   if (!success) {
+  //     setViewMessage(true);
+  //     setContentMessage("Error retrieving project tasks");
+  //   } else {
+  //     setProba(results);
+  //     // setTasksCount(results.length)
+  //   }
+  // };
+
+  //obtener proyectos del po
+  const getPoProjects = async () => {
+    const { success, results} = await api.getProjectByPo(myId);
 
     if (!success) {
       setViewMessage(true);
       setContentMessage("Error retrieving project tasks");
     } else {
-      setProba(results);
+      // setProba(results);
+      setData(Data=>[...Data,...results])
+      
+      // setTasksCount(results.length)
+    }
+  };
+
+  //obtener proyectos del po
+  const getMemberProjects = async () => {
+    const { success, results} = await api.getProjectByMember(myId);
+
+    if (!success) {
+      setViewMessage(true);
+      setContentMessage("Error retrieving project tasks");
+    } else {
+      // setProba(results);
+      console.log(results);
+      setData(Data=>[...Data,...results])
+      
       // setTasksCount(results.length)
     }
   };
 
   
-
+  console.log(Data);
 
   useEffect( ()=> {
-    getData();
-    console.log(proba);
+    getPoProjects();
+    getMemberProjects();
+    console.log(Data);
   },[]);
 
   // console.log(Data)
@@ -69,7 +104,7 @@ const Projects = () => {
   if (isProductOwner) {
     productOwnercomponent = (
       <div class="create">
-        <CreateProject data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
+        <CreateProject userId={myId} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
       </div>
     );
   }
@@ -84,7 +119,7 @@ const Projects = () => {
             {Data.map((item) => (
               <div id="listitem" key={item.projId}>{/*TODO: once the proj is created in CreateProject, send back the id from the bbdd to use here as key*/}
                 <div>
-                  <h3>{item.title}</h3>
+                  <h3>{item.project_name}</h3>
                   <p id="po">{item.po}</p>
                 </div>
                 <div id="description">

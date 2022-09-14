@@ -3,7 +3,7 @@ import Projects from "../pages/Projects";
 import * as api from "./api";
 
 const CreateProject = (props) => {
-  const [title, setTitle] = useState("");
+  const [project_name, setTitle] = useState("");
   const [po, setPo] = useState("");
   const [description, setDescription] = useState("");
   const [member, setMember] = useState("");
@@ -13,23 +13,25 @@ const CreateProject = (props) => {
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
   //TODO: get user id from the cookies
-  const [userId, setUserId] = useState("6308fafe5b7c059a452a3c79");
-
+  // const [userId, setUserId] = useState("");
+  
+  const myId = props.userId;
+  
   const ContentMessage = () => (
     <p className="message_feedback">{contentMessage}</p>
   );
 
   const SaveProject = async (e) => {
     e.preventDefault();
-    if (title == "" || description == "" || team.length == 0) {
+    if (project_name == "" || description == "" || team.length == 0) {
       setViewMessage(true);
       setContentMessage("No field can be empty for a new project");
     } else {
       const { success, results, error } = await api.createProject({
-        title,
+        project_name,
         description,
         teamIds,
-        userId,
+        myId,
       });
       if (success) {
         setViewMessage(false);
@@ -41,6 +43,7 @@ const CreateProject = (props) => {
         setProj((proj) => (proj = {}));
         setTitle("");
         setDescription("");
+        console.log("success")
       } else {
         setViewMessage(true);
         setContentMessage(`There was a server error: ${error}`);
@@ -48,11 +51,11 @@ const CreateProject = (props) => {
     }
   };
 
-  const addData = (projId) => {
+  const addData = () => {
     setProj({
-      title,
+      project_name,
       description,
-      projId,
+      // myId,
     });
   };
 
