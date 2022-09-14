@@ -1,22 +1,16 @@
-const Card_AllVotes = () => {
-    return (
-      <div className='gridCardsVote'>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote minor"><h1>1</h1><p>nombre:</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote elderly"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-        <div className="containerCard_finalVote"><h1>1</h1><p>nombre</p></div>
-      </div>
-    )
+const Card_AllVotes = ({usernameVote, vote}) => {
+  return (
+
+      <div className="containerCard_finalVote"><h1>{vote}</h1><p>{usernameVote}</p></div>
+      )
+
+    }
+      {/* 
+      <div className="containerCard_finalVote minor"><h1>{vote}</h1><p>{usernameVote}</p></div>
+      <div className="containerCard_finalVote elderly"><h1>{vote}</h1><p>{usernameVote}</p></div>
+        */}
  
-  }
-  
-  export default Card_AllVotes
+ 
+
+export default Card_AllVotes
   
