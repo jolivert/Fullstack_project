@@ -2,11 +2,16 @@ import React from 'react'
 import '../assets/style/header.css'
 
 
-const Header = () => {
+const Header = (props) => {
+
+  const title = props.title;
+  const user = props.user;
+  const subtitle = `Hi ${user} `
+
   return (
     <div id='header'>
-     <h1>Soy un componente Header</h1>
-     <h2>Soy el subtitulo</h2>
+     <h1>{title}</h1>
+     <h2>{subtitle}</h2>
     </div>
   )
 }

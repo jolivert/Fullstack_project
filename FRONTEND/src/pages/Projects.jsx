@@ -25,23 +25,12 @@ const Projects = () => {
 
   const utype= JSON.parse(localStorage.getItem("token"));
   const isProductOwner= utype.userType==="PO"??true;
-  const userName= utype.user;
+  const user_name= utype.username;
+  console.log(user_name);
   const myId= "631d8ecb47f6a7f7432adcb8"
   // console.log(myId);
 
-
-  //obtener proyectos:
-  // const getData = async () => {
-  //   const { success, results} = await api.getProjectList();
-
-  //   if (!success) {
-  //     setViewMessage(true);
-  //     setContentMessage("Error retrieving project tasks");
-  //   } else {
-  //     setProba(results);
-  //     // setTasksCount(results.length)
-  //   }
-  // };
+  const page = "My Projects"
 
   //obtener proyectos del po
   const getPoProjects = async () => {
@@ -111,7 +100,7 @@ const Projects = () => {
 
   return (
     <div>
-      <Header />
+      <Header title={page} user={user_name} />
       <div class="projectpage">
         {productOwnercomponent}
         <div class="list">

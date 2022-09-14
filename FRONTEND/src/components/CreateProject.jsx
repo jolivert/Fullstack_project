@@ -61,7 +61,7 @@ const CreateProject = (props) => {
 
   const addMember = async () => {
     const { success, userId, error } = await api.checkUserExists(member);
-    if (success) {
+    if (success && userId != myId) {
       setViewMessage(false);
       setTeam((Team) => [...Team, member]);
       setTeamIds((TeamIds) => [...TeamIds, userId]);
