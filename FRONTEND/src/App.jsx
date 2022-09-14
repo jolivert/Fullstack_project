@@ -8,18 +8,20 @@ import Login from "./components/Login.jsx";
 import TodoTasks from "./pages/TodoTasks.jsx";
 import Projects from "./pages/Projects.jsx";
 import Initial from "./pages/Initial.jsx";
+import AllVotesPlanningPocker from "./pages/AllVotesPlanningPocker.jsx";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [mode, setMode] = useState("login");
 
   const login = (token) => {
+
     setToken(token);
     localStorage.setItem("token", JSON.stringify(token));
+    
   };
 
   const setmodefn = (toggle) => {
-    console.log(toggle);
     setMode(toggle);
   };
 
@@ -36,9 +38,10 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Initial />} />
             <Route path="TodoTasks" element={<TodoTasks />} />
-
+            <Route path="project/:id/tasks" element={<TodoTasks />} /> {/*Pau said this would be the way to do this link if we used params (useParams)*/};
             <Route path="projects" element={<Projects />} />
             <Route path="PlanningPocker" element={<PlanningPocker />} />
+            <Route path="AllVotesPlanningPocker" element={<AllVotesPlanningPocker />} />
           </Route>
         </Routes>
       </div>

@@ -9,10 +9,10 @@ const taskRoutes= require ('./task/task.controller');
 const PORT = process.env.PORT || 8082;
 const db = require('./db');
 const { errorHandler, TeamMgmtApiError } = require("./errors");
+const { needsAuthToken } = require('./users/auth/auth.middleware');
 
 const app = express();
 
-app.use(express.json());
 
 app.disable('x-powered-by');
 app.use(cors());
@@ -29,7 +29,9 @@ app.get("/",async (req, res)=>{
 });
 
 require('./users/user.controller').addRoutesTo(app);
-
+app.use('/api', projectRoutes);
+app.use('/api', userStoryRoutes);
+app.use('/api', taskRoutes);
 
 // Catch all errors from middleware
 app.all("/*", async (req, res, next) => {

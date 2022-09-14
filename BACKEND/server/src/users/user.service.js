@@ -22,11 +22,23 @@ const authenticateUser = async ({ email, password }) => {
   if (!passwordMatches) {
     errUnauthorized(`Wrong email or password`);
   }
-  const token = auth.createToken(email);
+  
+  const uid= JSON.stringify(user._id);
+  console.log(uid);
+  const token = auth.createToken(email, user.userType, uid );
   return token;
+}
+
+const findUserByUsername = async (username) => {
+  const user = await User.findOne({ username }).lean().exec();
+  if (!user) {
+    errUnauthorized(`Wrong email or password`);
+  }
+  return user._id;
 }
 
 module.exports = {
   createUser,
   authenticateUser,
+  findUserByUsername,
 }

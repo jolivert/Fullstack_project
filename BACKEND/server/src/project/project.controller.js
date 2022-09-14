@@ -1,13 +1,14 @@
 const express = require("express");
+const { needsAuthToken } = require("../users/auth/auth.middleware");
 const projectSchema = require('./project.model');
 const router = express.Router();
 
 
  //create a project
- router.post("/project",(req, res)=>{
+ router.post("/project", async (req, res)=>{
     //res.send("create project");
    const project = projectSchema(req.body);
-   project
+   await project
    .save() 
    .then((data)=>res.json(data))
    .catch((error)=> res.json({message: error}));
@@ -15,7 +16,7 @@ const router = express.Router();
  });
 
  //get all projects
- router.get("/project",(req, res)=>{
+ router.get("/project", needsAuthToken,(req, res)=>{
    projectSchema
    .find() 
    .then((data)=>res.json(data))
@@ -23,7 +24,7 @@ const router = express.Router();
  });
 
   //get a projects
-  router.get("/project/:id",(req, res)=>{
+  router.get("/project/:id",needsAuthToken,(req, res)=>{
     const {id}= req.params;
     projectSchema
     .findById(id) 

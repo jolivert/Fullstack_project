@@ -7,7 +7,7 @@ const needsAuthToken = async (req,res,next) => {
         if (!header) {
             errUnauthorized(`Missing auth header`);
         }
-        if (!header.startWith("Bearer ")) {
+        if (!header.startsWith("Bearer ")) {
             errUnauthorized(`Authorization header doesn't strat with "Bearer"`);
         }
         const token = header.slice("Bearer ".length);

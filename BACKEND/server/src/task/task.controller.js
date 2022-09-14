@@ -1,28 +1,34 @@
-
-
 const express = require("express");
-const taskSchema = require('./task.model');
+const taskSchema = require("./task.model");
 const router = express.Router();
 
-
-
- /*//create project
+/*//create project
  router.post("/project",(req, res)=>{
     res.send("create project");
  });*/
 
- //create a task
- router.post("/task",(req, res)=>{
-   const task = taskSchema(req.body);
-   task
-   .save() 
-   .then((data)=>res.json(data))
-   .catch((error)=> res.json({message: error}));
- });
+//create a task
+router.post("/task", async (req, res) => {
+  const task = taskSchema(req.body);
+  await task
+    .save()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
 
- //get all tasks
- router.get("/task",(req, res)=>{
+//get all tasks
+router.get("/task", (req, res) => {
   taskSchema
+    .find()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+//get a task
+router.get("/task/:id", (req, res) => {
+  const { id } = req.params;
+  taskSchema
+
    .find()
    .then((data)=>res.json(data))
    .catch((error)=> res.json({message: error}));
@@ -60,3 +66,4 @@ router.put("/task/:id", (req, res) => {
 
  module.exports = router;
  
+

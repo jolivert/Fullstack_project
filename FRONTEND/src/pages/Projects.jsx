@@ -2,36 +2,45 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header.jsx";
 import CreateProject from "../components/CreateProject.jsx";
 import "../assets/style/projects.css";
+import * as api from "../components/api";
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
-  // const SaveProjects = () => {
-  //   const info = []
-  //     // {
-  //     //   title: "Project 1",
-  //     //   description: "Fullstack project based on scrum and planning poket methodologies ",
-  //     //   poname: "Jose"
-  //     // },
-  //   return info;
-  // }
-
-  // useEffect( ()=> {
-  // },[<CreateProject/>]);
 
   const [Title, setTitle] = React.useState("ñe");
   const [Po, setPo] = React.useState("ñe");
   const [Description, setDescription] = React.useState("ñe");
-
-  // const Data = [{Po, Title, Description}]
-
   const [Data, setData] = React.useState([]);
-  const isProductOwner= true;
-  console.log(Data)
+  const [showMessage, setViewMessage] = useState(false);
+  const [contentMessage, setContentMessage] = useState("");
 
+  const utype= JSON.parse(localStorage.getItem("token"));
+  const isProductOwner= utype.userType==="PO"??true;
+  
+  const ContentMessage = () => <p className="message_feedback">{contentMessage}</p>;
+
+  const destroyProject = async (info) => {
+    const { success, error } = await api.destroyProject(info.projId);
+
+    if(success){
+      var filteredProjects = Data.filter(function(value, index, arr){ 
+        return index != info.index;
+      });
+      setData(filteredProjects);
+      setViewMessage(false);
+    }else{
+      setViewMessage(true);
+      setContentMessage(`${error}`);
+    }
+  };
+
+  //TODO: create useffect to gather projects from the bbdd once the page is loaded. Set into Data
   let productOwnercomponent = null;
+
   if (isProductOwner) {
     productOwnercomponent = (
       <div class="create">
-        <CreateProject hola="saludos" data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
+        <CreateProject data={Data} onNewProject={(proj)=> setData(Data=>[...Data,proj])}/>
       </div>
     );
   }
@@ -42,17 +51,26 @@ const Projects = () => {
         {productOwnercomponent}
         <div class="list">
           <ul>
-            {Data.map((item) => (
-              <div id="listitem">
-                <div>
-                  <h3>{item.title}</h3>
-                  <p id="po">{item.po} </p>
+          {showMessage ? <ContentMessage /> : null}{" "}
+            {Data.map((item, index) => (
+              
+                <div id="listitem" key={item.projId}>
+                  <Link to="/TodoTasks" state={{projId: item.projId, title: item.title}}>
+                    <div>
+                      <h3> {item.title} </h3>
+                      <p id="po">{item.po} </p>
+                    </div>
+                  </Link>
+                  <div id="description">
+                    <p> {item.description} </p>
+                  </div>
+                  <button onClick={() => destroyProject({projId: item.projId, index: index})}>
+                    <div className="imgPaperBin" >
+                      <img className="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
+                    </div>
+                  </button>
                 </div>
-                <div>
-                  <p>{item.description} </p>
-                </div>
-                <img class="icon" src="https://img.icons8.com/FE4B2B/delete" />
-              </div>
+              
             ))}
           </ul>
         </div>
