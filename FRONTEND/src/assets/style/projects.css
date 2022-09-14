@@ -4,6 +4,7 @@ body{
 
 .projectpage{
     display: flex;
+    justify-content: center;
 }
 
 h3{
@@ -14,8 +15,13 @@ h3{
 
 /* div de creación de proyectos */
 .create{
-    width: 25%;
+    width: 20%;
     margin: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 150px;
 }
 
 /* div lista de proyectos */
@@ -25,6 +31,7 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 180px;
 }
 
 .list ul {

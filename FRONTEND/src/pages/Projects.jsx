@@ -26,9 +26,10 @@ const Projects = () => {
   const utype= JSON.parse(localStorage.getItem("token"));
   const isProductOwner= utype.userType==="PO"??true;
   const user_name= utype.username;
-  console.log(user_name);
-  const myId= "631d8ecb47f6a7f7432adcb8"
-  // console.log(myId);
+  const id= utype.userid;
+  console.log(id);
+  console.log(id.replace(/['"]+/g, ''));
+  const myId= id.replace(/['"]+/g, '')
 
   const page = "My Projects"
 
