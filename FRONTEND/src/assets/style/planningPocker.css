@@ -1,0 +1,261 @@
+
+.containerTodoTasks{
+    background-color:#41527E;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    height: 100vh; 
+}
+header{
+    height: 277px;
+    background-color: #FFFFFF;
+    border: 1.5px solid #41527E;
+    border-radius: 17px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header .title{
+    margin: .6em;
+    color: #FE4B2B;
+    font-size: 3rem;
+    font-weight: bolder;
+}
+header .subtitle{
+    color: #41527E;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1em;
+}
+
+main{
+   margin: 3em;
+   width: 60%; 
+}
+
+/*.containerPostTasks{
+    display: flex;
+    justify-content: center;
+}*/
+
+
+.containerPostTasks label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+}
+
+.containerPostTasks input{
+    margin:.5em;
+    padding: 1em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+   
+    background: #4F6291;
+    color: #FFFFFF;
+    border-radius: 6px;
+    border: none;
+    border-radius: 6px;
+    
+}
+/*.containerPostTasks input:last-child{
+    height: 150px;
+}*/
+
+::placeholder { 
+    color: #FFFFFF;
+    opacity: .8; 
+} 
+
+
+.containerTaskToVote{
+    padding: 1em;
+    background: #FFFFFF;
+    border-radius: 10px;
+    
+}
+
+.lineaTask{
+    color: white;
+    margin-bottom: 1em;   
+    margin-top: 2em;
+}
+
+.infoTask{
+    display: flex;
+    color:#FE4B2B;
+    margin-bottom: 1em;
+}
+
+.infoTask h2{
+   flex: 2;
+}
+
+.infoTask p {
+    flex:1;
+}
+
+
+.imgPaperBin{
+   
+   background-image:url("../img/paper-bin.png");
+   background-size: contain;
+   background-repeat: no-repeat;
+   flex: .2;
+   color: transparent;
+  
+}
+.buttonP{
+    background-color:white;
+    border: none;
+    color: #FE4B2B;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3em;
+    margin: .1em .1em;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.2s all;
+}
+.buttonP:hover {
+background: #D3D3D3 ;
+	box-shadow: inherit;
+  /*  color: #fff; */
+}
+.buttonT:hover {
+    background: #D3D3D3 ;
+        box-shadow: inherit;
+      /*  color: #fff; */
+    }
+/*.buttonP:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.16);
+    }*/
+.buttonP:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+.buttonT:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+.buttonT{
+    background-color:white;
+    border: none;
+    color: #FE4B2B;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3em;
+    margin: .1em .1em;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 5.7em 5.7em 5.7em;
+  }
+  .wrapper2 {
+    display: grid;
+    grid-template-columns: 25em 25em;
+  }
+
+  .carta-box {
+    margin-left: 3em;
+    margin-top: 5em;
+    width: 10em;
+    height: 5em;
+    position: relative;
+    perspective: 400em;
+    cursor: pointer;
+  }
+  
+  .carta-box:hover .carta {
+      transform: rotateY(180deg);
+  }
+  
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+  }
+  
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .cara.detras {
+    transform: rotateY(180deg);
+  }
+
+   .buttonPost{
+    width: 110px;
+    height: 42px;
+    background-color: #FE4B2B;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 44px;
+    border: none;
+    margin-left: 2.5em;
+    margin-top: 1.5em;
+}
+ 
+.cards{
+    display: inline-block;
+    font-size: 3em;
+    margin: .1em .1em;
+    cursor: pointer;
+    padding: .1em;
+    border-radius: 12px;
+}
+.buttonPost{
+  margin-right: 5em;
+}
+.buttonPost:hover{
+    background: #E1492E ;
+    box-shadow: inherit;
+}
+.buttonPost:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+ .card{
+     margin: 0 auto;
+     background: #4F6290;
+     color:rgb(255, 255, 255);
+     width: 12.1em;
+     height: 15em;
+     padding: 15px;
+     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+     border-radius: 20px;  
+     border-width: .5em;
+     border-style: solid;
+     border-color: rgb(255, 255, 255);
+      display:flex;
+    justify-content: center;
+    align-items: center;
+       
+ }
+ .textoVoto{
+    color: #FE4B2B;
+    font-size: 5em; 
+    
+}

@@ -13,13 +13,16 @@ const { needsAuthToken } = require('./users/auth/auth.middleware');
 
 const app = express();
 
+
 app.disable('x-powered-by');
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+
 app.use('/api', projectRoutes);
 app.use('/api', userStoryRoutes);
 app.use('/api', taskRoutes);
+
 
 app.get("/",async (req, res)=>{
     res.status(200).send({ send: "Hello! Welcome to the team management API!"});
