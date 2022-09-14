@@ -36,7 +36,7 @@ const taskSchema = mongoose.Schema({
   all_votes:{ 
       user: [
         { type: mongoose.Schema.ObjectId,
-          ref:'User', require: true}
+          ref:'User', require: true, unique: true}
         ],
       vote:[
         { type: String,

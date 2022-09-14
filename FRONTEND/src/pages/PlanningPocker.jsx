@@ -9,7 +9,7 @@ const PlanningPocker = (props) => {
   //var testLocalStore = 'expiresnnIn';
   const token = JSON.parse(localStorage.getItem("token"));
   const testLocalStore = token.tokenType; //token id!!!!!! modificar cdo se añada el id al token y borrar del nombre de la tarea
-  const [task_id, setTaskId] = useState("62f988b36ebb6230ed3d9a97");
+  const [task_id, setTaskId] = useState("62f9b6dd57b35a80acb602d0");
   const [user_id, setUserId] = useState("62eff9e8284ad97961ae7c43");
   const [voteTask, setVoteTask] = useState("☕");
   const [task_name, setTaskName] = React.useState("Task one");
@@ -41,10 +41,11 @@ const PlanningPocker = (props) => {
 
       if (!success) {
         setViewMessage(true);
-        setContentMessage("Error retrieving project tasks");
+        setContentMessage("Error update project task");
       } 
       console.log(results);
-  };
+   
+    };
 
 
 
@@ -86,6 +87,7 @@ const PlanningPocker = (props) => {
                 <div class="carta-box">
                 <div class="card">
         <a className='textoVoto'>{voteTask}</a>
+       
     </div>
     <button className='buttonPost'onClick={updateTask}> Send </button>
      
