@@ -67,8 +67,11 @@ const Projects = () => {
   console.log(Data);
 
   useEffect( ()=> {
-    getPoProjects();
-    getMemberProjects();
+    if (isProductOwner) {
+      getPoProjects();
+    } else {
+      getMemberProjects();
+    }
     console.log(Data);
   },[]);
 
