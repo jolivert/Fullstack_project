@@ -33,16 +33,6 @@ const taskSchema = mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  all_votes:{ 
-      user: [
-        { type: mongoose.Schema.ObjectId,
-          ref:'User', require: true, unique: true}
-        ],
-      vote:[
-        { type: String,
-        require: true}
-        ],
- },
   description: {
     type: String,
     trim: true,

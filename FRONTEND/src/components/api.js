@@ -220,25 +220,3 @@ export const destroyProject = async (projId) => {
     return { success: false, error: `Network error: ${e.message}` };
   }
 };
-
-export const updateTask = async (id, task) => {
-  try {
-    const { accessToken } = JSON.parse(localStorage.getItem("token"));
-    const response = await fetch(`${BASE_URL}/api/task/${id}`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
-    const updated = await response.json()
-    if (response.status === 200) {
-      return { success: true, results:updated };
-    } else {
-      return { success: false, error: "Couldn't update task" };
-    }
-  } catch (e) {
-    return { success: false, error: `Network error: ${e.message}` };
-  }
-};
