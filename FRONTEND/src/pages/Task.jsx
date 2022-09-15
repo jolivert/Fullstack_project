@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/style/TodoTasks.css";
 import * as api from "../components/api";
+import { Link } from 'react-router-dom';
 
 function Task(props) {
 
@@ -17,7 +18,9 @@ function Task(props) {
       <section className="infoTask">
         <h2 className="title-infoTask"> {props.children.task_name} </h2>
         <div className="buttonVote">
+        <Link to="/PlanningPocker" state={{taskId: props.children._id, taskTitle: props.children.task_name, taskDesc: props.children.description}}>
           <button>VOTE</button>
+        </Link>
         </div>
         <button>
           <div className="imgPaperBin" onClick={destroyTaskActivate}>

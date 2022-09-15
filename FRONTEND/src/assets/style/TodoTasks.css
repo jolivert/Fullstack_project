@@ -132,8 +132,8 @@ main {
 }
 
 .title-infoTask {
-  color: #fe4b2b;
-  font-weight: bolder;
+  color: #fe4b2b!important;
+  font-weight: bolder!important;
 }
 
 .imgPaperBin {
