@@ -224,7 +224,8 @@ export const addTodo = async ({ what }) => {
 
 export const createProject = async (projectData) => {
 
-  console.log(`registerData: ${projectData.project_name}`);
+  const { accessToken } = JSON.parse(localStorage.getItem("token"));
+  console.log(`registerData: ${projectData.title}`);
 
   const projectDataMapped = {
     project_name: projectData.project_name,
@@ -237,6 +238,7 @@ export const createProject = async (projectData) => {
     const response = await fetch(`${BASE_URL}/api/project`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(projectDataMapped),
@@ -270,26 +272,46 @@ export const checkUserExists = async (username) => {
   } catch (e) {
     return { success: false, error: `Network error: ${e.message}` };
   }
-}
+};
 
-//
+export const destroyProject = async (projId) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/project/${projId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const todos = await response.json();
+    if (response.status === 200) {
+      return { success: true, results: todos };
+    } else {
+      return { success: false, error: "Couldn't delete task" };
+    }
+  } catch (e) {
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+};
 
-// export const getUser = async (id) => {
-//   try {
-//     const { accessToken } = JSON.parse(localStorage.getItem("token"));
-//     const response = await fetch(`${BASE_URL}/users/${id}`, {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${accessToken}`,
-//       },
-//     });
-//     const userName = await response.json();
-//     if (response.status === 200) {
-//       return { success: true, userName: userName};
-//     } else {
-//       return { success: false, error: "Couldn't find user" };
-//     }
-//   } catch (e) {
-//     return { success: false, error: `Network error: ${e.message}` };
-//   }
-// }
+export const updateTask = async (id, task) => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/task/${id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+    const updated = await response.json()
+    if (response.status === 200) {
+      return { success: true, results:updated };
+    } else {
+      return { success: false, error: "Couldn't update task" };
+    }
+  } catch (e) {
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+};

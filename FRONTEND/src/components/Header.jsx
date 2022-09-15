@@ -5,9 +5,7 @@ import '../assets/style/header.css'
 const Header = (props) => {
 
   const title = props.title;
-  const user = props.user;
-  const subtitle = `Hi ${user}`
-  console.log(user);
+  const subtitle = props.subtitle;
 
   return (
     <div id='header'>

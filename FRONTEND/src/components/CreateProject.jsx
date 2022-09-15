@@ -35,15 +35,13 @@ const CreateProject = (props) => {
       });
       if (success) {
         setViewMessage(false);
-        addData(results._id);
-        props.onNewProject(proj);
+        props.onNewProject({title: proj.project_name, description: proj.description, projId: results._id});
         e.target.reset();
         setTeam([]);
         setTeamIds([]);
-        setProj((proj) => (proj = {}));
+        setProj((proj) =>proj = {});
         setTitle("");
         setDescription("");
-        console.log("success")
       } else {
         setViewMessage(true);
         setContentMessage(`There was a server error: ${error}`);
@@ -51,11 +49,10 @@ const CreateProject = (props) => {
     }
   };
 
-  const addData = () => {
+  const addData = () =>{
     setProj({
       project_name,
       description,
-      // myId,
     });
   };
 
