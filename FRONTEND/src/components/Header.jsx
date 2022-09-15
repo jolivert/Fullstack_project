@@ -1,6 +1,10 @@
 import React from 'react'
 import '../assets/style/header.css'
 
+const logout = () => {
+  localStorage.removeItem("token");
+  window.location.reload(true);
+};
 
 const Header = (props) => {
 
@@ -17,7 +21,7 @@ const Header = (props) => {
         <h2>{subtitle}</h2>
       </div>
       <div id='lateral'>
-        <button> <img class="icon" src="https://img.icons8.com/windows/32/41527E/logout-rounded-down.png"/> </button>
+        <button onClick={logout}> <img class="icon" src="https://img.icons8.com/windows/32/41527E/logout-rounded-down.png"/> </button>
       </div>
     </div>
   )

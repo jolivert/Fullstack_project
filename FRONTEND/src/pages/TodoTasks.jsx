@@ -4,6 +4,7 @@ import * as api from "../components/api";
 import Task from "./Task";
 import { useLocation, useParams } from "react-router-dom";
 import Header from "../components/Header.jsx";
+import BtnLogout from '../components/BtnLogout'
 
 const TodoTasks = (props) => {
   const location = useLocation();
@@ -74,14 +75,10 @@ const TodoTasks = (props) => {
   
   return (
     <div className="containerTodoTasks">
-      <header>
-        <h1 className="title">{project_title}</h1>
-        <p>To Do Tasks</p>
-      </header>
-
+      <Header title="Project tasks" subtitle={project_title} />
     {/* <Header title={page} subtitle={subtitle} /> */}
 
-      <main>
+      <main style={{marginTop: 160}}>
         <div className="containerPostTasks">
           <label htmlFor="">
             <input id="task-title" type="text" placeholder=" Write your task title" onChange={(e) => setTaskTitle(e.target.value)} />
