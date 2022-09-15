@@ -65,6 +65,79 @@ export const getTasksList = async (id) => {
   }
 }
 
+//obtener proyectos:
+export const getProjectList = async () => {
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/project`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const projects = await response.json()
+    if (response.status === 200) {
+      return { success: true, results: projects };
+    } else {
+      console.log("Couldn't fetch projects");
+      return { success: false, error: "Couldn't fetch projects" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
+//obtener proyectos solo del Po
+export const getProjectByPo = async (myId) => {
+  // console.log(`my id: ${myId}`);
+  const idPo = '6308fafe5b7c059a452a3c79'
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/projects/${myId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const projects = await response.json()
+    if (response.status === 200) {
+      return { success: true, results: projects };
+    } else {
+      console.log("Couldn't fetch projects");
+      return { success: false, error: "Couldn't fetch projects" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
+//obtener proyectos solo del Po
+export const getProjectByMember = async (myId) => {
+  console.log(`my id: ${myId}`);
+  const idMember = '6308fafe5b7c059a452a3c79'
+  try {
+    const { accessToken } = JSON.parse(localStorage.getItem("token"));
+    const response = await fetch(`${BASE_URL}/api/myprojects/${myId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const projects = await response.json()
+    if (response.status === 200) {
+      return { success: true, results: projects };
+    } else {
+      console.log("Couldn't fetch projects");
+      return { success: false, error: "Couldn't fetch projects" };
+    }
+  } catch (e) {
+    console.log("Network error");
+    return { success: false, error: `Network error: ${e.message}` };
+  }
+}
+
 export const saveTask = async (task) => {
   try {
     const { accessToken } = JSON.parse(localStorage.getItem("token"));
@@ -155,9 +228,9 @@ export const createProject = async (projectData) => {
   console.log(`registerData: ${projectData.title}`);
 
   const projectDataMapped = {
-    project_name: projectData.title,
+    project_name: projectData.project_name,
     description: projectData.description,
-    product_owner: projectData.userId,
+    product_owner: projectData.myId,
     team_members: projectData.teamIds,
   };
 

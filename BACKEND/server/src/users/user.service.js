@@ -25,7 +25,7 @@ const authenticateUser = async ({ email, password }) => {
   
   const uid= JSON.stringify(user._id);
   console.log(uid);
-  const token = auth.createToken(email, user.userType, uid );
+  const token = auth.createToken(email, user.userType, uid, user.username);
   return token;
 }
 
@@ -36,6 +36,7 @@ const findUserByUsername = async (username) => {
   }
   return user._id;
 }
+
 
 module.exports = {
   createUser,

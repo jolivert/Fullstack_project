@@ -2,11 +2,23 @@ import React from 'react'
 import '../assets/style/header.css'
 
 
-const Header = () => {
+const Header = (props) => {
+
+  const title = props.title;
+  const subtitle = props.subtitle;
+
   return (
     <div id='header'>
-     <h1>Soy un componente Header</h1>
-     <h2>Soy el subtitulo</h2>
+      <div id='lateral'>
+
+      </div>
+      <div className='title'>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+      </div>
+      <div id='lateral'>
+        <button> <img class="icon" src="https://img.icons8.com/windows/32/41527E/logout-rounded-down.png"/> </button>
+      </div>
     </div>
   )
 }

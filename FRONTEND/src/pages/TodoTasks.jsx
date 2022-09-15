@@ -3,14 +3,19 @@ import "../assets/style/TodoTasks.css";
 import * as api from "../components/api";
 import Task from "./Task";
 import { useLocation, useParams } from "react-router-dom";
+import Header from "../components/Header.jsx";
 
-const TodoTasks = () => {
+const TodoTasks = (props) => {
   const location = useLocation();
   const state = location.state;
+  console.log(props.state);
 
   //Unused. But it would be the way to use Params to retrieve the id and title from the URL
   //const {id} = useParams();
   //console.log(`id: ${id}`);
+
+  const page = state.project_title;
+  const subtitle = "To Do Tasks";
 
   const [project_id, setProjId] = useState(state.projId);
   const [project_title, setProjTitle] = useState(state.title);
@@ -73,6 +78,8 @@ const TodoTasks = () => {
         <h1 className="title">{project_title}</h1>
         <p>To Do Tasks</p>
       </header>
+
+    {/* <Header title={page} subtitle={subtitle} /> */}
 
       <main>
         <div className="containerPostTasks">

@@ -16,7 +16,7 @@ const router = express.Router();
  });
 
  //get all projects
- router.get("/project", needsAuthToken,(req, res)=>{
+ router.get("/project",(req, res)=>{
    projectSchema
    .find() 
    .then((data)=>res.json(data))
@@ -24,13 +24,33 @@ const router = express.Router();
  });
 
   //get a projects
-  router.get("/project/:id",needsAuthToken,(req, res)=>{
+  router.get("/project/:id",(req, res)=>{
     const {id}= req.params;
     projectSchema
-    .findById(id) 
+    .find({_id:id}) 
     .then((data)=>res.json(data))
     .catch((error)=> res.json({message: error}));
   });
+
+  //get a project by po id
+  router.get("/projects/:id",(req, res)=>{
+    const {id}= req.params;
+    projectSchema
+    .find({product_owner:id}).lean().exec() 
+    .then((data)=>res.json(data))
+    .catch((error)=> res.json({message: error}));
+  });
+
+  //get a project by team_members id
+  router.get("/myprojects/:id",(req, res)=>{
+    const {id}= req.params;
+    projectSchema
+    .find({team_members:[id]}).lean().exec() 
+    .then((data)=>res.json(data))
+    .catch((error)=> res.json({message: error}));
+  });
+
+ 
 
     //update a projects
     router.put("/project/:id",(req, res)=>{
