@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card_AllVotes from "../components/Card_AllVotes.jsx";
 import "../assets/style/AllVotesPlanningPocker.css";
-import BtnLogout from "../components/BtnLogout";
+//import BtnLogout from "../components/BtnLogout";
 import { Link, useNavigate } from "react-router-dom";
 import * as api from "../components/api";
+import Header from "../components/Header.jsx";
 
 const AllVotesPlanningPocker = (props) => {
   const token = JSON.parse(localStorage.getItem("token"));
@@ -77,7 +78,7 @@ const AllVotesPlanningPocker = (props) => {
 
   return (
     <div>
-      <hero>
+      {/*<hero>
         <div className="headerAllVote">
           <BtnLogout />
 
@@ -87,8 +88,9 @@ const AllVotesPlanningPocker = (props) => {
             Project: {project_name} {testLocalStore}
           </h2>
         </div>
-      </hero>
-      <section className="section-PlanningVotes">
+      </hero>*/}
+      <Header title={"Votes PlanningPocker"} subtitle={project_name} />
+      <section className="section-PlanningVotes" style={{ marginTop: 160 }}>
         <article>
           <div className="containerGetProject">
             <div className="boxGetProject">

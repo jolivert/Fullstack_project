@@ -4,6 +4,7 @@ import BtnLogout from "../components/BtnLogout";
 
 const logout = () => {
   localStorage.removeItem("token");
+  window.history.pushState(null, null, "/");
   window.location.reload(true);
 };
 
@@ -18,8 +19,8 @@ const Header = (props) => {
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
       </div>
-      <div className="box-btnLogout">
-        <BtnLogout />
+      <div id='lateral' className="lateral">
+        <button onClick={logout}> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/4043/4043198.png"/> </button>
       </div>
     </div>
   );
