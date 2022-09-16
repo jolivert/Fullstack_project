@@ -1,5 +1,7 @@
 import React from 'react'
 import '../assets/style/header.css'
+import BtnLogout from '../components/BtnLogout'
+
 
 const logout = () => {
   localStorage.removeItem("token");
@@ -20,9 +22,11 @@ const Header = (props) => {
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
       </div>
-      <div id='lateral'>
-        <button onClick={logout}> <img class="icon" src="https://img.icons8.com/windows/32/41527E/logout-rounded-down.png"/> </button>
-      </div>
+    <div className="box-btnLogout">
+    <BtnLogout/>
+    </div>
+   
+     
     </div>
   )
 }

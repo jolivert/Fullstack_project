@@ -25,8 +25,8 @@ function Task(props) {
             <button>{props.children.story_points}</button>
           </div>
           <button>
-            <div className="imgPaperBin" onClick={destroyTaskActivate}>
-            <img class="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
+            <div className="basura-one-task" onClick={destroyTaskActivate}>
+            <img  src="https://img.icons8.com/FE4B2B/delete" ></img>
             </div>
           </button>
         </section>
@@ -45,7 +45,7 @@ function Task(props) {
             </Link>
             </div>
             <button>
-              <div className="imgPaperBin" onClick={destroyTaskActivate}>
+              <div className="basura-one-task" onClick={destroyTaskActivate}>
               <img class="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
               </div>
             </button>
@@ -65,7 +65,7 @@ function Task(props) {
             </Link>
             </div>
             <button>
-              <div className="imgPaperBin" onClick={destroyTaskActivate}>
+              <div className="" onClick={destroyTaskActivate}>
               <img class="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
               </div>
             </button>

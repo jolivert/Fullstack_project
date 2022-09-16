@@ -122,7 +122,7 @@ const Projects = () => {
                     <p> {item.description} </p>
                   </div>
                   <button onClick={() => destroyProject({projId: item._id, index: index})}>
-                    <div className="imgPaperBin" >
+                    <div className="basura-project" >
                       <img className="icon" src="https://img.icons8.com/FE4B2B/delete" ></img>
                     </div>
                   </button>

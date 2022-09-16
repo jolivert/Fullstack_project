@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "../assets/style/planningPocker.css"
 import * as api from "../components/api";
+import BtnLogout from '../components/BtnLogout'
 //import BtnLogout from '../components/BtnLogout'
 
 
@@ -51,8 +52,9 @@ const PlanningPocker = (props) => {
 
   return (
     <div className='containerTodoTasks'>
-    <header>
-     {/* <BtnLogout/> */}
+    <header className="headerOneVote">
+          <BtnLogout/>
+      
        <h1 className='title'>título</h1>
         <p className='subtitle'>Estimación de la tarea</p>
     </header>

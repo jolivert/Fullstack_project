@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 //const UserStory = mongoose.model('UserStory');
-require ('../users/user.model');
-const User = mongoose.model('user');
-const Project = mongoose.model('Project');
-
+require('../users/user.model')
+const User = mongoose.model('user')
+const Project = mongoose.model('Project')
 
 const taskSchema = mongoose.Schema({
   task_name: {
@@ -11,20 +10,24 @@ const taskSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
- /*user_story_id: {
+  /*user_story_id: {
     type: mongoose.Schema.ObjectId, ref: 'UserStory',
     required: true,
   },*/
-     
-  users_id: [{
-  type: mongoose.Schema.ObjectId, ref: 'User',
-  }],
+
+  users_id: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+    },
+  ],
 
   project_id: {
-    type: mongoose.Schema.ObjectId, ref: 'Project',
+    type: mongoose.Schema.ObjectId,
+    ref: 'Project',
     required: true,
   },
-  
+
   finished: {
     type: Boolean,
     required: true,
@@ -34,15 +37,16 @@ const taskSchema = mongoose.Schema({
     required: true,
   },
 
-  all_votes:{ 
+  all_votes: {
     user: [
-      { type: mongoose.Schema.ObjectId,
-        ref:'User', require: true, unique: true}
-      ],
-    vote:[
-      { type: String,
-      require: true}
-      ],
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        require: false,
+        unique: true,
+      },
+    ],
+    vote: [{ type: String, require: false }],
   },
 
   description: {
@@ -50,16 +54,15 @@ const taskSchema = mongoose.Schema({
     trim: true,
   },
   time_init: {
-    type: Date, 
+    type: Date,
     //default: Date.now
   },
-  time_end: { 
+  time_end: {
     type: Date,
   },
- story_points:{
-  type: Number
-}
-});
+  story_points: {
+    type: Number,
+  },
+})
 
-
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model('Task', taskSchema)

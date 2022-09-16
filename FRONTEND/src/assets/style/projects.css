@@ -40,7 +40,7 @@ h3{
 }
 
 #listitem {
-    background-color: white;
+    background-color: white ;
     border-radius: 8px;
     display: flex;
     /* justify-content: space-between; */
@@ -52,12 +52,14 @@ h3{
     width: 100%;
 }
 
+
 #description {
     width: 100%;
 }
 
 
 .icon {
+    margin-left: -1em;
     height: 1.5rem;
 }
 

@@ -1,7 +1,10 @@
 body{
     margin: 0%;
 }
-
+.box-btnLogout .nav_logout img{
+    background-color: transparent;
+    width: 30px;
+}
 #header {
     display: flex;
     justify-content: space-between;
