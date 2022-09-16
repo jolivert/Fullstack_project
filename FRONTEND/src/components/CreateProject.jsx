@@ -14,9 +14,9 @@ const CreateProject = (props) => {
   const [contentMessage, setContentMessage] = useState("");
   //TODO: get user id from the cookies
   // const [userId, setUserId] = useState("");
-  
+
   const myId = props.userId;
-  
+
   const ContentMessage = () => (
     <p className="message_feedback">{contentMessage}</p>
   );
@@ -35,11 +35,15 @@ const CreateProject = (props) => {
       });
       if (success) {
         setViewMessage(false);
-        props.onNewProject({title: proj.project_name, description: proj.description, projId: results._id});
+        props.onNewProject({
+          project_name: proj.project_name,
+          description: proj.description,
+          projId: results._id,
+        });
         e.target.reset();
         setTeam([]);
         setTeamIds([]);
-        setProj((proj) =>proj = {});
+        setProj((proj) => (proj = {}));
         setTitle("");
         setDescription("");
       } else {
@@ -49,7 +53,7 @@ const CreateProject = (props) => {
     }
   };
 
-  const addData = () =>{
+  const addData = () => {
     setProj({
       project_name,
       description,
