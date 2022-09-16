@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "../assets/style/planningPocker.css";
 import * as api from "../components/api";
-import BtnLogout from "../components/BtnLogout";
-//import BtnLogout from '../components/BtnLogout'
 
-const PlanningPocker = (props) => {
-  //var testLocalStore = (localStorage.getItem('token')).getItem('expiresIn');
-  //var testLocalStore = 'expiresnnIn';
+import { useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import BtnLogout from "../components/BtnLogout";
+//import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
+const PlanningPocker = props => {
+  const location = useLocation();
+  const state = location.state;
+
   const token = JSON.parse(localStorage.getItem("token"));
-  const testLocalStore = token.tokenType; //token id!!!!!! modificar cdo se añada el id al token y borrar del nombre de la tarea
-  const [task_id, setTaskId] = useState("632227412347444dba3198c2");
-  const [user_id, setUserId] = useState("6308fafe5b7c059a452a3c79");
+  const testLocalStore = JSON.parse(token.userid);
+  console.log(testLocalStore);
+  const navigate = useNavigate();
+  const [task_id, setTaskId] = useState(state.taskId);
+  const [user_id, setUserId] = useState(testLocalStore);
   const [voteTask, setVoteTask] = useState("☕");
-  const [task_name, setTaskName] = React.useState("Task one");
-  const [description, setDescription] = React.useState(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias voluptates pariatur quis velit nam quo fuga, excepturi distinctio, molestiae repellendus deserunt quam autem quibusdam, tenetur quod nemo eos placeat a."
-  );
+
+  const [task_name, setTaskName] = React.useState(state.taskTitle);
+  const [description, setDescription] = React.useState(state.taskDesc);
+
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
 
@@ -46,24 +53,21 @@ const PlanningPocker = (props) => {
       setContentMessage("Error update project task");
     }
     console.log(results);
+    navigate(-1);
   };
 
   return (
     <div className="containerTodoTasks">
-      <header className="headerOneVote">
+      <header>
         <BtnLogout />
-
-        <h1 className="title">título</h1>
-        <p className="subtitle">Estimación de la tarea</p>
+        <h1 className="title">Planning Pocker</h1>
+        <p className="subtitle">Estimación de Tarea</p>
       </header>
 
       <main>
         <div className="containerTaskToVote">
           <section className="infoTask">
-            <h2 className="title-infoTask">
-              {" "}
-              {task_name} {testLocalStore}
-            </h2>
+            <h2 className="title-infoTask"> {task_name}</h2>
             {/* <h2 className='title-infoTask'> {props.children.task_name} </h2> */}
           </section>
           <section className="descriptionTask"> {description} </section>
@@ -198,10 +202,19 @@ const PlanningPocker = (props) => {
             <div class="card">
               <a className="textoVoto">{voteTask}</a>
             </div>
-            <button className="buttonPost" onClick={updateTask}>
-              {" "}
-              Send{" "}
-            </button>
+            
+            {/* <Link to="/TodoTask">
+              <button className="buttonPost" onClick={updateTask}>
+                {" "}
+                Send{" "}
+              </button>
+            </Link> */}
+
+            
+              <button className="buttonPost" onClick={updateTask}>
+                {" "}
+                Send{" "}
+              </button>
 
             {/* <div class="carta">    
     <div class="cara">
