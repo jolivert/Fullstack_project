@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../assets/style/planningPocker.css";
 import * as api from "../components/api";
+
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BtnLogout from "../components/BtnLogout";
@@ -10,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 const PlanningPocker = props => {
   const location = useLocation();
   const state = location.state;
-  //console.log(props.state);
 
   const token = JSON.parse(localStorage.getItem("token"));
   const testLocalStore = JSON.parse(token.userid);
@@ -19,8 +19,10 @@ const PlanningPocker = props => {
   const [task_id, setTaskId] = useState(state.taskId);
   const [user_id, setUserId] = useState(testLocalStore);
   const [voteTask, setVoteTask] = useState("☕");
+
   const [task_name, setTaskName] = React.useState(state.taskTitle);
   const [description, setDescription] = React.useState(state.taskDesc);
+
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
 
@@ -40,8 +42,8 @@ const PlanningPocker = props => {
     let task = {
       all_votes: {
         user: [user_id],
-        vote: [voteTask]
-      }
+        vote: [voteTask],
+      },
     };
 
     const { success, results } = await api.updateTask(task_id, task);
@@ -200,8 +202,7 @@ const PlanningPocker = props => {
             <div class="card">
               <a className="textoVoto">{voteTask}</a>
             </div>
-
-
+            
             {/* <Link to="/TodoTask">
               <button className="buttonPost" onClick={updateTask}>
                 {" "}
@@ -214,7 +215,6 @@ const PlanningPocker = props => {
                 {" "}
                 Send{" "}
               </button>
-           
 
             {/* <div class="carta">    
     <div class="cara">
