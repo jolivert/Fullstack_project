@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import "../assets/style/planningPocker.css"
+import React, { useState, useEffect } from "react";
+import "../assets/style/planningPocker.css";
 import * as api from "../components/api";
-import BtnLogout from '../components/BtnLogout'
+import BtnLogout from "../components/BtnLogout";
 //import BtnLogout from '../components/BtnLogout'
-
 
 const PlanningPocker = (props) => {
   //var testLocalStore = (localStorage.getItem('token')).getItem('expiresIn');
@@ -14,11 +13,13 @@ const PlanningPocker = (props) => {
   const [user_id, setUserId] = useState("6308fafe5b7c059a452a3c79");
   const [voteTask, setVoteTask] = useState("☕");
   const [task_name, setTaskName] = React.useState("Task one");
-  const [description, setDescription] = React.useState("Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias voluptates pariatur quis velit nam quo fuga, excepturi distinctio, molestiae repellendus deserunt quam autem quibusdam, tenetur quod nemo eos placeat a.");
+  const [description, setDescription] = React.useState(
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias voluptates pariatur quis velit nam quo fuga, excepturi distinctio, molestiae repellendus deserunt quam autem quibusdam, tenetur quod nemo eos placeat a."
+  );
   const [showMessage, setViewMessage] = useState(false);
   const [contentMessage, setContentMessage] = useState("");
 
- /* function UpdateTextoVoto() {
+  /* function UpdateTextoVoto() {
 
       useEffect((ValVote) => {
         setVoteTask(ValVote);
@@ -27,73 +28,182 @@ const PlanningPocker = (props) => {
       var UpdateTextoVoto = (ValVote) => {
         setVoteTask(ValVote);
       };*/
-      
-   var modificar;
- 
+
+  var modificar;
+
   const updateTask = async () => {
     let task = {
-      all_votes:{ 
+      all_votes: {
         user: [user_id],
-        vote: [voteTask]
-      }
+        vote: [voteTask],
+      },
     };
 
-    const { success, results} = await api.updateTask(task_id, task);
+    const { success, results } = await api.updateTask(task_id, task);
 
-      if (!success) {
-        setViewMessage(true);
-        setContentMessage("Error update project task");
-      } 
-      console.log(results);
-   
-    };
-
-
+    if (!success) {
+      setViewMessage(true);
+      setContentMessage("Error update project task");
+    }
+    console.log(results);
+  };
 
   return (
-    <div className='containerTodoTasks'>
-    <header className="headerOneVote">
-          <BtnLogout/>
-      
-       <h1 className='title'>título</h1>
-        <p className='subtitle'>Estimación de la tarea</p>
-    </header>
+    <div className="containerTodoTasks">
+      <header className="headerOneVote">
+        <BtnLogout />
 
-    <main>
-      
-    <div className='containerTaskToVote'>
-        <section className='infoTask'>
-        <h2 className='title-infoTask'> {task_name}  {testLocalStore}</h2>
-        {/* <h2 className='title-infoTask'> {props.children.task_name} </h2> */}
-        </section>
-        <section className='descriptionTask'> {description} </section>
+        <h1 className="title">título</h1>
+        <p className="subtitle">Estimación de la tarea</p>
+      </header>
+
+      <main>
+        <div className="containerTaskToVote">
+          <section className="infoTask">
+            <h2 className="title-infoTask">
+              {" "}
+              {task_name} {testLocalStore}
+            </h2>
+            {/* <h2 className='title-infoTask'> {props.children.task_name} </h2> */}
+          </section>
+          <section className="descriptionTask"> {description} </section>
         </div>
 
-        <hr className='lineaTask'/>
-  <div className='wrapper2'>
-   <div className='wrapper'>   
-       {/*  <img className="cards" src="http://wiki.vykar.com/skins/common/images/2000px-Playing_card_spade_A_svg.png" width="90rem" height="135rem"/> */}
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(0);}}>0</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask('½');}}>½</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(1);}}>1</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(2);}}>2</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(3);}}>3</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(5);}}>5</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(8);}}>8</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(13);}}>13</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask(21);}}>21</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask('∞');}}>∞</button>
-       <button className="buttonP" onClick={  modificar = () => {setVoteTask('?');}}>?</button> 
-       <button className="buttonT" onClick={  modificar = () => {setVoteTask('☕');}}>☕</button>
-   </div>
-                <div class="carta-box">
-                <div class="card">
-        <a className='textoVoto'>{voteTask}</a>
-       
-    </div>
-    <button className='buttonPost'onClick={updateTask}> Send </button>
-     
-  {/* <div class="carta">    
+        <hr className="lineaTask" />
+        <div className="wrapper2">
+          <div className="wrapper">
+            {/*  <img className="cards" src="http://wiki.vykar.com/skins/common/images/2000px-Playing_card_spade_A_svg.png" width="90rem" height="135rem"/> */}
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(0);
+                })
+              }
+            >
+              0
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask("½");
+                })
+              }
+            >
+              ½
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(1);
+                })
+              }
+            >
+              1
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(2);
+                })
+              }
+            >
+              2
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(3);
+                })
+              }
+            >
+              3
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(5);
+                })
+              }
+            >
+              5
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(8);
+                })
+              }
+            >
+              8
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(13);
+                })
+              }
+            >
+              13
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask(21);
+                })
+              }
+            >
+              21
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask("∞");
+                })
+              }
+            >
+              ∞
+            </button>
+            <button
+              className="buttonP"
+              onClick={
+                (modificar = () => {
+                  setVoteTask("?");
+                })
+              }
+            >
+              ?
+            </button>
+            <button
+              className="buttonT"
+              onClick={
+                (modificar = () => {
+                  setVoteTask("☕");
+                })
+              }
+            >
+              ☕
+            </button>
+          </div>
+          <div class="carta-box">
+            <div class="card">
+              <a className="textoVoto">{voteTask}</a>
+            </div>
+            <button className="buttonPost" onClick={updateTask}>
+              {" "}
+              Send{" "}
+            </button>
+
+            {/* <div class="carta">    
     <div class="cara">
       <img src="https://www.maxplayingcards.com/es/wp-content/uploads/2014/01/Different-BikeBack.png" width="200" height="250px"/>
        <h1 className='textoVoto'>7</h1>
@@ -102,22 +212,12 @@ const PlanningPocker = (props) => {
       <img src="http://wiki.vykar.com/skins/common/images/2000px-Joker_black_02_svg.png" width="200" height="250px"/>
     </div>    
   </div> */}
+          </div>
+        </div>
 
-</div>  
-
-       
-       </div>
-
-     
-        <hr className='lineaTask'/>
-
-      
-
-  
-    
-    </main>
+        <hr className="lineaTask" />
+      </main>
     </div>
-  )
-   
-}
+  );
+};
 export default PlanningPocker;

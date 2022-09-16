@@ -1,10 +1,10 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/style/TodoTasks.css";
 import * as api from "../components/api";
 import Task from "./Task";
 import { useLocation, useParams } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import BtnLogout from '../components/BtnLogout'
+import BtnLogout from "../components/BtnLogout";
 
 const TodoTasks = (props) => {
   const location = useLocation();
@@ -28,18 +28,20 @@ const TodoTasks = (props) => {
   const [taskUserStory, setUserStory] = useState("");
   const [taskTitle, setTaskTitle] = useState("");
 
-  const ContentMessage = () => <p className="message_feedback">{contentMessage}</p>;
+  const ContentMessage = () => (
+    <p className="message_feedback">{contentMessage}</p>
+  );
 
   useEffect(() => {
     const getData = async () => {
-      const { success, results} = await api.getTasksList(state.projId);
+      const { success, results } = await api.getTasksList(state.projId);
 
       if (!success) {
         setViewMessage(true);
         setContentMessage("Error retrieving project tasks");
       } else {
         setData(results);
-        setTasksCount(results.length)
+        setTasksCount(results.length);
       }
     };
 
@@ -48,7 +50,7 @@ const TodoTasks = (props) => {
     return () => {
       console.log("cleaning");
     };
-  }, [tasksCount/*,id*/]);
+  }, [tasksCount /*,id*/]);
 
   const saveTask = async () => {
     let task = {
@@ -57,28 +59,29 @@ const TodoTasks = (props) => {
       description: taskDescription,
       finished: false,
       isvoted: false,
-      story_points: 0};
+      story_points: 0,
+    };
 
-    const { success, results} = await api.saveTask(task);
+    const { success, results } = await api.saveTask(task);
 
-      if (!success) {
-        setViewMessage(true);
-        setContentMessage("Error retrieving project tasks");
-      } else {
-        setTasksCount(prevCounter => prevCounter + 1);
-      }
+    if (!success) {
+      setViewMessage(true);
+      setContentMessage("Error retrieving project tasks");
+    } else {
+      setTasksCount((prevCounter) => prevCounter + 1);
+    }
   };
 
-  const onDestroyTask= () => {
-    setTasksCount(prevCounter => prevCounter - 1);
+  const onDestroyTask = () => {
+    setTasksCount((prevCounter) => prevCounter - 1);
   };
-  
+
   return (
     <div className="containerTodoTasks">
       <Header title="Project tasks" subtitle={project_title} />
-    {/* <Header title={page} subtitle={subtitle} /> */}
+      {/* <Header title={page} subtitle={subtitle} /> */}
 
-      <main style={{marginTop: 160}}>
+      <main style={{ marginTop: 160 }}>
         <div className="containerPostTasks">
           {/* <label htmlFor="">
             <input id="task-title" type="text" placeholder=" Write your task title" onChange={(e) => setTaskTitle(e.target.value)} />
@@ -87,11 +90,26 @@ const TodoTasks = (props) => {
           </label> */}
           <label className="titulos-Input-task" htmlFor="">
             <p>Task title</p>
-            <input id="task-title" type="text" placeholder=" Write the task title" onChange={(e) => setTaskTitle(e.target.value)} />
+            <input
+              id="task-title"
+              type="text"
+              placeholder=" Write the task title"
+              onChange={(e) => setTaskTitle(e.target.value)}
+            />
             <p>User story</p>
-            <input id="user-story" type="text" placeholder=" Write the user story it's part of" onChange={(e) => setUserStory(e.target.value)}/>
+            <input
+              id="user-story"
+              type="text"
+              placeholder=" Write the user story it's part of"
+              onChange={(e) => setUserStory(e.target.value)}
+            />
             <p>Description</p>
-            <textarea className="taskDescriptionClass" type="text" placeholder=" Write the task description" onChange={(e) => setTaskDesc(e.target.value)}></textarea>
+            <textarea
+              className="taskDescriptionClass"
+              type="text"
+              placeholder=" Write the task description"
+              onChange={(e) => setTaskDesc(e.target.value)}
+            ></textarea>
           </label>
 
           <div className="boxButtonPost">

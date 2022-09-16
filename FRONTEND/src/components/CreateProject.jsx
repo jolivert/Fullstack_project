@@ -1,77 +1,77 @@
-import React, { useState, useEffect } from 'react'
-import Projects from '../pages/Projects'
-import * as api from './api'
+import React, { useState, useEffect } from "react";
+import Projects from "../pages/Projects";
+import * as api from "./api";
 
 const CreateProject = (props) => {
-  const [project_name, setTitle] = useState('')
-  const [po, setPo] = useState('')
-  const [description, setDescription] = useState('')
-  const [member, setMember] = useState('')
-  const [team, setTeam] = useState([])
-  const [teamIds, setTeamIds] = useState([])
-  const [proj, setProj] = useState({})
-  const [showMessage, setViewMessage] = useState(false)
-  const [contentMessage, setContentMessage] = useState('')
+  const [project_name, setTitle] = useState("");
+  const [po, setPo] = useState("");
+  const [description, setDescription] = useState("");
+  const [member, setMember] = useState("");
+  const [team, setTeam] = useState([]);
+  const [teamIds, setTeamIds] = useState([]);
+  const [proj, setProj] = useState({});
+  const [showMessage, setViewMessage] = useState(false);
+  const [contentMessage, setContentMessage] = useState("");
   //TODO: get user id from the cookies
   // const [userId, setUserId] = useState("");
 
-  const myId = props.userId
+  const myId = props.userId;
 
   const ContentMessage = () => (
     <p className="message_feedback">{contentMessage}</p>
-  )
+  );
 
   const SaveProject = async (e) => {
-    e.preventDefault()
-    if (project_name == '' || description == '' || team.length == 0) {
-      setViewMessage(true)
-      setContentMessage('No field can be empty for a new project')
+    e.preventDefault();
+    if (project_name == "" || description == "" || team.length == 0) {
+      setViewMessage(true);
+      setContentMessage("No field can be empty for a new project");
     } else {
       const { success, results, error } = await api.createProject({
         project_name,
         description,
         teamIds,
         myId,
-      })
+      });
       if (success) {
-        setViewMessage(false)
+        setViewMessage(false);
         props.onNewProject({
           project_name: proj.project_name,
           description: proj.description,
           projId: results._id,
-        })
-        e.target.reset()
-        setTeam([])
-        setTeamIds([])
-        setProj((proj) => (proj = {}))
-        setTitle('')
-        setDescription('')
+        });
+        e.target.reset();
+        setTeam([]);
+        setTeamIds([]);
+        setProj((proj) => (proj = {}));
+        setTitle("");
+        setDescription("");
       } else {
-        setViewMessage(true)
-        setContentMessage(`There was a server error: ${error}`)
+        setViewMessage(true);
+        setContentMessage(`There was a server error: ${error}`);
       }
     }
-  }
+  };
 
   const addData = () => {
     setProj({
       project_name,
       description,
-    })
-  }
+    });
+  };
 
   const addMember = async () => {
-    const { success, userId, error } = await api.checkUserExists(member)
+    const { success, userId, error } = await api.checkUserExists(member);
     if (success && userId != myId) {
-      setViewMessage(false)
-      setTeam((Team) => [...Team, member])
-      setTeamIds((TeamIds) => [...TeamIds, userId])
-      setMember('')
+      setViewMessage(false);
+      setTeam((Team) => [...Team, member]);
+      setTeamIds((TeamIds) => [...TeamIds, userId]);
+      setMember("");
     } else {
-      setViewMessage(true)
-      setContentMessage(`${error}`)
+      setViewMessage(true);
+      setContentMessage(`${error}`);
     }
-  }
+  };
 
   return (
     <div>
@@ -108,7 +108,7 @@ const CreateProject = (props) => {
               ADD
             </button>
           </div>
-          {showMessage ? <ContentMessage /> : null}{' '}
+          {showMessage ? <ContentMessage /> : null}{" "}
           <div>
             <ul>
               {team.map((item) => (
@@ -126,6 +126,6 @@ const CreateProject = (props) => {
         </div>
       </form>
     </div>
-  )
-}
-export default CreateProject
+  );
+};
+export default CreateProject;

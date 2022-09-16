@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 //const UserStory = mongoose.model('UserStory');
-require('../users/user.model')
-const User = mongoose.model('user')
-const Project = mongoose.model('Project')
+require("../users/user.model");
+const User = mongoose.model("user");
+const Project = mongoose.model("Project");
 
 const taskSchema = mongoose.Schema({
   task_name: {
@@ -18,13 +18,13 @@ const taskSchema = mongoose.Schema({
   users_id: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
   ],
 
   project_id: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Project',
+    ref: "Project",
     required: true,
   },
 
@@ -41,7 +41,7 @@ const taskSchema = mongoose.Schema({
     user: [
       {
         type: mongoose.Schema.ObjectId,
-        ref: 'User',
+        ref: "User",
         require: false,
         unique: true,
       },
@@ -63,6 +63,6 @@ const taskSchema = mongoose.Schema({
   story_points: {
     type: Number,
   },
-})
+});
 
-module.exports = mongoose.model('Task', taskSchema)
+module.exports = mongoose.model("Task", taskSchema);
