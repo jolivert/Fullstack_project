@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./pages/Layout.jsx";
 import SignUp from "./components/SignUp";
 import PlanningPocker from "./pages/PlanningPocker.jsx";
@@ -13,12 +13,14 @@ import AllVotesPlanningPocker from "./pages/AllVotesPlanningPocker.jsx";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [mode, setMode] = useState("login");
+  const navigate = useNavigate();
 
   const login = (token) => {
 
     setToken(token);
     localStorage.setItem("token", JSON.stringify(token));
-    
+    setTimeout(1000);
+    navigate("/projects",{ replace: true });
   };
 
   const setmodefn = (toggle) => {

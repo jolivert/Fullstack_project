@@ -2,7 +2,7 @@
     width: 30px;
 }
 .containerTodoTasks{
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color:#41527E;
     display: flex;
     flex-direction: column;

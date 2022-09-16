@@ -2,6 +2,7 @@ import React from 'react'
 
 const logout = () => {
   localStorage.removeItem("token");
+  window.history.pushState(null, null, "/");
   window.location.reload(true);
 };
 const BtnLogout = () => {

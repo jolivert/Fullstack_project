@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../assets/style/planningPocker.css";
 import * as api from "../components/api";
-
+import Header from "../components/Header.jsx";
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BtnLogout from "../components/BtnLogout";
@@ -58,13 +58,13 @@ const PlanningPocker = props => {
 
   return (
     <div className="containerTodoTasks">
-      <header>
+      {/*<header>
         <BtnLogout />
         <h1 className="title">Planning Pocker</h1>
         <p className="subtitle">Estimación de Tarea</p>
-      </header>
-
-      <main>
+        </header>*/}
+      <Header title={"Planning Pocker"} subtitle={"Estimación de Tarea"} />
+      <main style={{ marginTop: 160 }}>
         <div className="containerTaskToVote">
           <section className="infoTask">
             <h2 className="title-infoTask"> {task_name}</h2>
