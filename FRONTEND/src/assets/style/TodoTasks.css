@@ -5,6 +5,14 @@
   align-items: center;
   height: 100vh;
 }
+.titulos-Input-task{
+  color: #ffffff;
+}
+
+.titulos-Input-task p {
+  margin-left:.4em ;
+  margin-top: .5em;
+}
 header {
   height: 300px;
   background-color: #ffffff;

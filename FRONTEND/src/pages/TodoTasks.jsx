@@ -80,11 +80,20 @@ const TodoTasks = (props) => {
 
       <main style={{marginTop: 160}}>
         <div className="containerPostTasks">
-          <label htmlFor="">
+          {/* <label htmlFor="">
             <input id="task-title" type="text" placeholder=" Write your task title" onChange={(e) => setTaskTitle(e.target.value)} />
             <input id="user-story" type="text" placeholder=" Write the user story it's part of" onChange={(e) => setUserStory(e.target.value)}/>
             <textarea className="taskDescriptionClass" type="text" placeholder=" Write your task description" onChange={(e) => setTaskDesc(e.target.value)}></textarea>
+          </label> */}
+          <label className="titulos-Input-task" htmlFor="">
+            <p>Task title</p>
+            <input id="task-title" type="text" placeholder=" Write the task title" onChange={(e) => setTaskTitle(e.target.value)} />
+            <p>User story</p>
+            <input id="user-story" type="text" placeholder=" Write the user story it's part of" onChange={(e) => setUserStory(e.target.value)}/>
+            <p>Description</p>
+            <textarea className="taskDescriptionClass" type="text" placeholder=" Write the task description" onChange={(e) => setTaskDesc(e.target.value)}></textarea>
           </label>
+
           <div className="boxButtonPost">
             <button onClick={saveTask}> + Add</button>
           </div>
