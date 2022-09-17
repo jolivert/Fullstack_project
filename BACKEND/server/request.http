@@ -34,11 +34,11 @@ POST http://localhost:8082/register HTTP/1.1
 Content-Type: application/json
 
 {
-"username":"juggj",
-"email":"juakkvvj@gmail.com",
+"username":"diana",
+"email":"jua@gmail.com",
 "password":"erthjujj",
-"name":"Juan",
-"surname":"Juan",
+"name":"diana",
+"surname":"diana",
 "userType": "user"
   }
   
@@ -103,7 +103,7 @@ PUT http://localhost:8082/api/task/62f9b6dd57b35a80acb602d0 HTTP/1.1
 Content-Type: application/json
 
 {
-"task_name":"Tarea NEW",
+"task_name":"Taa NEW",
 "finished":"false",
 "users_id":["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f"],
 "project_id":"62ef4f1e761e1fc0d02dfbee",

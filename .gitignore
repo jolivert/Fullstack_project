@@ -1,4 +1,6 @@
 BACKEND/server/node_modules/
+BACKEND/request.http
+
 
 # Logs
 logs
