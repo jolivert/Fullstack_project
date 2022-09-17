@@ -111,6 +111,11 @@ main{
    color: transparent;
   
 }
+
+.BtnLogout{
+margin-top: 3em;
+}
+
 .buttonP{
     background-color:white;
     border: none;

@@ -1,0 +1,125 @@
+###
+POST http://localhost:8082/api/project HTTP/1.1
+Content-Type: application/json
+
+{
+    "project_name":"Tjjjid",
+    "description":"Tiid",
+    "product_owner":"62f007006ac0e06ab7a855da",
+    "team_members":["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f", userid:""6323ef14791bb4422f022226""]
+ }
+ 
+
+###
+GET http://localhost:8082/api/project HTTP/1.1
+
+
+###
+GET http://localhost:8082/api/project/62ef517af67c2e9be72ba218 HTTP/1.1
+
+###
+PUT http://localhost:8082/api/project/62ef517af67c2e9be72ba218 HTTP/1.1
+Content-Type: application/json
+
+{
+    "project_name":"Testjuyt"
+
+} 
+
+###
+DELETE http://localhost:8082/api/project/62ef4eb464c61dde8028f56a HTTP/1.1
+
+###
+POST http://localhost:8082/register HTTP/1.1
+Content-Type: application/json
+
+{
+"username":"juggj",
+"email":"juakkvvj@gmail.com",
+"password":"erthjujj",
+"name":"Juan",
+"surname":"Juan",
+"userType": "user"
+  }
+  
+###
+POST http://localhost:8082/api/user_story HTTP/1.1
+Content-Type: application/json
+
+{
+    "story_name":"Testff",
+    "description":"buuiojk bui kh uu njj nj", 
+    "project_id": "62ef517af67c2e9be72ba218",
+    "project_test": "62f988b36ebb6230ed3d9a97",
+  //  "tasks":["62f98f7f9dbdf11c771eb5b1","62f98f629dbdf11c771eb5af"],
+    "state":"true"
+
+   
+}
+###
+GET http://localhost:8082/api/user_story HTTP/1.1
+
+###
+GET http://localhost:8082/api/user_story/62f98d2f6adffcede7aa0463 HTTP/1.1
+
+###
+PUT http://localhost:8082/api/user_story/62f032c547ee1c126133a12a HTTP/1.1
+Content-Type: application/json
+
+{
+    "story_name":"TestP"
+} 
+
+  
+###
+GET http://localhost:8082/api/task HTTP/1.1
+
+###
+GET http://localhost:8082/api/task/630d9626093726a8ec9ac2e9 HTTP/1.1
+
+###
+GET http://localhost:8082/api/task/62f9b6dd57b35a80acb602d0 HTTP/1.1
+
+
+###
+POST http://localhost:8082/api/task HTTP/1.1
+Content-Type: application/json
+
+{
+"task_name":"Tarea nkk",
+"finished":"false",
+"users_id":["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f"],
+"project_id":"62ef4f1e761e1fc0d02dfbee",
+"isvoted":"false",
+"time_end":"2022-08-12",
+"all_votes":{ 
+    "user": ["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f"],
+    "vote": ["5", "6"]
+  }
+}
+
+###
+PUT http://localhost:8082/api/task/62f9b6dd57b35a80acb602d0 HTTP/1.1
+Content-Type: application/json
+
+{
+"task_name":"Tarea NEW",
+"finished":"false",
+"users_id":["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f"],
+"project_id":"62ef4f1e761e1fc0d02dfbee",
+"isvoted":"false",
+"time_end":"2022-08-12",
+"description":"La vaca lola",
+
+}
+
+###
+PUT http://localhost:8082/api/task/630d9626093726a8ec9ac2e9 HTTP/1.1
+Content-Type: application/json
+
+{
+"all_votes":{ 
+    "user": ["62eff9e8284ad97961ae7c43", "62f00905c89a0d568a9ead8f"],
+    "vote": ["7", "9"]
+  }
+}

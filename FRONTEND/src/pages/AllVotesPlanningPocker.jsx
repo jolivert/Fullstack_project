@@ -32,7 +32,7 @@ const AllVotesPlanningPocker = (props) => {
   const submit = async (e) => {
     try {
       e.preventDefault();
-      navigate("/TodoTasks", { replace: true });
+      navigate(-1);
     } catch (error) {
       console.log(error.message);
     }
